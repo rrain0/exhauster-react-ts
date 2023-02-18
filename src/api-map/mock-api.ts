@@ -305,32 +305,32 @@ export namespace MockApi {
       // дата последней замены
       replacementDate: '12-02-2023',
       // сколько дней прошло с момента последней замены
-      replacementWere: function(){ return DateTime.from_dd_MM_yyyy(this.replacementDate)!.getDays() },
+      get replacementWere(){ return DateTime.from_dd_MM_yyyy(this.replacementDate)!.getDays() },
       // через сколько дней заменить (прогноз замены)
       replacementForecast: 12,
       // текущее состояние ротора, зависит от прогноза замены
-      replacementForecastState: function(){ return this.replacementForecast<=3 ? 'danger' : (this.replacementForecast<=10 ? 'caution' : 'ok') },
+      get replacementForecastState(){ return this.replacementForecast<=3 ? 'danger' : (this.replacementForecast<=10 ? 'caution' : 'ok') },
     },{
       id: nextId(),
       name: 'Ротор № 47',
       replacementDate: '14-02-2023',
-      replacementWere: function(){ return DateTime.from_dd_MM_yyyy(this.replacementDate)!.getDays() },
+      get replacementWere(){ return DateTime.from_dd_MM_yyyy(this.replacementDate)!.getDays() },
       replacementForecast: 9,
-      replacementForecastState: function(){ return this.replacementForecast<=3 ? 'danger' : (this.replacementForecast<=10 ? 'caution' : 'ok') },
+      get replacementForecastState(){ return this.replacementForecast<=3 ? 'danger' : (this.replacementForecast<=10 ? 'caution' : 'ok') },
     },{
       id: nextId(),
       name: 'Ротор № 37',
       replacementDate: '1-02-2023',
-      replacementWere: function(){ return DateTime.from_dd_MM_yyyy(this.replacementDate)!.getDays() },
+      get replacementWere(){ return DateTime.from_dd_MM_yyyy(this.replacementDate)!.getDays() },
       replacementForecast: 3,
-      replacementForecastState: function(){ return this.replacementForecast<=3 ? 'danger' : (this.replacementForecast<=10 ? 'caution' : 'ok') },
+      get replacementForecastState(){ return this.replacementForecast<=3 ? 'danger' : (this.replacementForecast<=10 ? 'caution' : 'ok') },
     },{
       id: nextId(),
       name: 'Ротор № 32',
       replacementDate: '30-01-2023',
-      replacementWere: function(){ return DateTime.from_dd_MM_yyyy(this.replacementDate)!.getDays() },
+      get replacementWere(){ return DateTime.from_dd_MM_yyyy(this.replacementDate)!.getDays() },
       replacementForecast: 1,
-      replacementForecastState: function(){ return this.replacementForecast<=3 ? 'danger' : (this.replacementForecast<=10 ? 'caution' : 'ok') },
+      get replacementForecastState(){ return this.replacementForecast<=3 ? 'danger' : (this.replacementForecast<=10 ? 'caution' : 'ok') },
     },
   ]
   

@@ -30,9 +30,9 @@ function ExhausterCard(props: ExhausterCardProps){
       <Line/>
       <Space h={15}/>
       <RotorReplacement.RotorReplacement
-        daysPassed={props.exhauster.rotor.replacementWere()}
+        daysPassed={props.exhauster.rotor.replacementWere}
         daysLeft={props.exhauster.rotor.replacementForecast}
-        state={props.exhauster.rotor.replacementForecastState()}
+        state={props.exhauster.rotor.replacementForecastState}
       />
       <Space h={15}/>
       
