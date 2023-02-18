@@ -4,9 +4,9 @@ import col = StyledCommon.col;
 import Space from "../Space";
 import {MockApi} from "src/api-map/mock-api";
 import ExhausterType = MockApi.ExhausterType;
-import { Header } from "./Header/Header";
-import { RotorTitle } from "./RotorTitle/RotorTitle";
-import { RotorReplacement } from "./RotorReplacement/RotorReplacement";
+import { Header } from "./Header";
+import { RotorTitle } from "./RotorTitle";
+import { RotorReplacement } from "./RotorReplacement";
 import { DropDownList } from "./DropDownList/DropDownList";
 
 

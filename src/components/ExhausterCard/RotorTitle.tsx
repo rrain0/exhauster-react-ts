@@ -1,4 +1,4 @@
-import ThreeDotsIc from "../../icons/ThreeDotsIc";
+import ThreeDotsIc from "../icons/ThreeDotsIc";
 import styled from "styled-components";
 import {StyledCommon} from "src/style/styled-common";
 import center = StyledCommon.center;

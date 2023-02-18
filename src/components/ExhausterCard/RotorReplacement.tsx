@@ -1,4 +1,4 @@
-import CautionRoundIc from "../../icons/CautionRoundIc";
+import CautionRoundIc from "../icons/CautionRoundIc";
 import styled from "styled-components";
 import {StyledCommon} from "src/style/styled-common";
 
