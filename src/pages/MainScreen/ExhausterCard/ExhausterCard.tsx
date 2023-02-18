@@ -49,9 +49,7 @@ function ExhausterCard(props: ExhausterCardProps){
       <DropDownList.DropDownList
         title='Предупреждения'
         items={[...props.exhauster.bearers, props.exhauster.oil].filter(it=>
-          ['caution','danger'].includes(it['oil']) ||
-          ['caution','danger'].includes(it['temperature']) ||
-          ['caution','danger'].includes(it['vibration'])
+          ['caution','danger'].includes(it['state'])
         )}
         setSelectedBearers={setSelectedBearers}
       />
@@ -61,11 +59,7 @@ function ExhausterCard(props: ExhausterCardProps){
       <DropDownList.DropDownList
         title='Исправные элементы'
         items={[...props.exhauster.bearers, props.exhauster.oil].filter(it=>
-          !(
-            ['caution','danger'].includes(it['oil']) ||
-            ['caution','danger'].includes(it['temperature']) ||
-            ['caution','danger'].includes(it['vibration'])
-          )
+          !['caution','danger'].includes(it['state'])
         )}
         setSelectedBearers={setSelectedBearers}
       />

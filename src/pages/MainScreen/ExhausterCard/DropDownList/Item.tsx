@@ -18,8 +18,9 @@ export namespace Item {
   export interface OilType {
     id: string
     type: 'oil'
-    title: string
-    oil?: empty|StateType
+    name: string
+    state: StateType
+    oil: StateType
   }
   export interface BearerType {
     id: string
@@ -28,6 +29,7 @@ export namespace Item {
     location: LocationType
     temperature?: empty|StateType
     vibration?: empty|StateType
+    state: StateType
     data: BearerDataType
   }
   export type ItemType = OilType|BearerType
@@ -46,7 +48,7 @@ export namespace Item {
     >
       { it.type==='oil' && <>
           <Oil/>
-          <WrapFlex1><ItemTitle>{it.title}</ItemTitle></WrapFlex1>
+          <WrapFlex1><ItemTitle>{it.name}</ItemTitle></WrapFlex1>
         { it.oil && <MarkView.MarkView mark={{ type: 'oil', state: it.oil }} /> }
       </> }
       { it.type==='bearer' && <>

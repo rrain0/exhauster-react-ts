@@ -23,6 +23,7 @@ export namespace ExausterDetailedDataTypes {
     type: 'bearer'
     name: string
     location: LocationType
+    state: StateType
     data: BearerDataType
   }
   export type ElementType = BearerElementType
