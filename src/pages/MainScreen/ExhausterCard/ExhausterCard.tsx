@@ -1,7 +1,7 @@
 import styled from "styled-components";
 import {StyledCommon} from "src/style/styled-common";
 import col = StyledCommon.col;
-import Space from "../Space";
+import Space from "src/components/Space";
 import {MockApi} from "src/api-map/mock-api";
 import ExhausterType = MockApi.ExhausterType;
 import { Header } from "./Header";
@@ -25,7 +25,7 @@ function ExhausterCard(props: ExhausterCardProps){
   const [selectedBearers, setSelectedBearers] = useState<ItemType[]>([])
   
   return <Exhauster>
-    <Header.Header name={props.exhauster.name} isWorking={props.exhauster.isWorking}/>
+    <Header.Header name={props.exhauster.name} isWorking={props.exhauster.isWorking} id={props.exhauster.id}/>
     <MainContentFrame>
       <Space h={10}/>
       <RotorTitle.RotorTitle

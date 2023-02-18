@@ -1,8 +1,8 @@
 import {Utils} from "src/utils/utils";
 import nextId = Utils.nextId;
 import {DateTime} from "src/utils/DateTime";
-import {Item} from "../components/ExhausterCard/DropDownList/Item";
-import { MarkView } from "../components/ExhausterCard/DropDownList/MarkView";
+import {Item} from "../pages/MainScreen/ExhausterCard/DropDownList/Item";
+import { MarkView } from "../pages/MainScreen/ExhausterCard/DropDownList/MarkView";
 import OilType = Item.OilType;
 import StateType = MarkView.StateType;
 import BearerType = Item.BearerType;
@@ -43,255 +43,927 @@ export namespace MockApi {
     {
       id: nextId(),
       type: 'bearer',
-      title: '№ 1 п-к',
-      position: 1,
+      name: '№ 1 п-к',
+      location: 'bearer-1',
       temperature: 'ok' as StateType,
       vibration: 'ok' as StateType,
+      data: {
+        temperature: {
+          id: 'temperature',
+          value: 220,
+          state: 'ok',
+        },
+        verticalVibration: {
+          id: 'vertical-vibration',
+          value: 22,
+          state: 'danger',
+        },
+        horizontalVibration: {
+          id: 'horizontal-vibration',
+          value: 10,
+          state: 'caution',
+        },
+        axialVibration: {
+          id: 'axial-vibration',
+          value: 0,
+          state: 'ok',
+        },
+      }
     },{
       id: nextId(),
       type: 'bearer',
-      title: '№ 2 п-к',
-      position: 2,
+      name: '№ 2 п-к',
+      location: 'bearer-2',
       temperature: 'ok' as StateType,
       vibration: 'ok' as StateType,
+      data: {
+        temperature: {
+          id: 'temperature',
+          value: 220,
+          state: 'ok',
+        },
+        verticalVibration: {
+          id: 'vertical-vibration',
+          value: 22,
+          state: 'danger',
+        },
+        horizontalVibration: {
+          id: 'horizontal-vibration',
+          value: 10,
+          state: 'caution',
+        },
+        axialVibration: {
+          id: 'axial-vibration',
+          value: 0,
+          state: 'ok',
+        },
+      }
     },{
       id: nextId(),
       type: 'bearer',
-      title: '№ 3 п-к',
-      position: 3,
+      name: '№ 3 п-к',
+      location: 'bearer-3',
       temperature: 'caution' as StateType,
       vibration: 'ok' as StateType,
+      data: {
+        temperature: {
+          id: 'temperature',
+          value: 220,
+          state: 'ok',
+        },
+      }
     },{
       id: nextId(),
       type: 'bearer',
-      title: '№ 4 п-к',
-      position: 4,
+      name: '№ 4 п-к',
+      location: 'bearer-4',
       temperature: 'ok' as StateType,
       vibration: 'ok' as StateType,
+      data: {
+        temperature: {
+          id: 'temperature',
+          value: 220,
+          state: 'ok',
+        },
+        verticalVibration: {
+          id: 'vertical-vibration',
+          value: 22,
+          state: 'danger',
+        },
+        horizontalVibration: {
+          id: 'horizontal-vibration',
+          value: 10,
+          state: 'caution',
+        },
+        axialVibration: {
+          id: 'axial-vibration',
+          value: 0,
+          state: 'ok',
+        },
+      }
     },{
       id: nextId(),
       type: 'bearer',
-      title: '№ 5 п-к',
-      position: 5,
+      name: '№ 5 п-к',
+      location: 'bearer-5',
       temperature: 'ok' as StateType,
       vibration: 'caution' as StateType,
+      data: {
+        temperature: {
+          id: 'temperature',
+          value: 220,
+          state: 'ok',
+        },
+        verticalVibration: {
+          id: 'vertical-vibration',
+          value: 22,
+          state: 'danger',
+        },
+        horizontalVibration: {
+          id: 'horizontal-vibration',
+          value: 10,
+          state: 'caution',
+        },
+        axialVibration: {
+          id: 'axial-vibration',
+          value: 0,
+          state: 'ok',
+        },
+      }
     },{
       id: nextId(),
       type: 'bearer',
-      title: '№ 6 п-к',
-      position: 6,
+      name: '№ 6 п-к',
+      location: 'bearer-6',
       temperature: 'ok' as StateType,
       vibration: 'ok' as StateType,
+      data: {
+        temperature: {
+          id: 'temperature',
+          value: 220,
+          state: 'ok',
+        },
+        verticalVibration: {
+          id: 'vertical-vibration',
+          value: 22,
+          state: 'danger',
+        },
+        horizontalVibration: {
+          id: 'horizontal-vibration',
+          value: 10,
+          state: 'caution',
+        },
+        axialVibration: {
+          id: 'axial-vibration',
+          value: 0,
+          state: 'ok',
+        },
+      }
     },{
       id: nextId(),
       type: 'bearer',
-      title: '№ 7 п-к',
-      position: 7,
+      name: '№ 7 п-к',
+      location: 'bearer-7',
       temperature: 'ok' as StateType,
       vibration: 'ok' as StateType,
+      data: {
+        temperature: {
+          id: 'temperature',
+          value: 220,
+          state: 'ok',
+        },
+        verticalVibration: {
+          id: 'vertical-vibration',
+          value: 22,
+          state: 'danger',
+        },
+        horizontalVibration: {
+          id: 'horizontal-vibration',
+          value: 10,
+          state: 'caution',
+        },
+        axialVibration: {
+          id: 'axial-vibration',
+          value: 0,
+          state: 'ok',
+        },
+      }
     },{
       id: nextId(),
       type: 'bearer',
-      title: '№ 8 п-к',
-      position: 8,
+      name: '№ 8 п-к',
+      location: 'bearer-8',
       temperature: 'ok' as StateType,
       vibration: 'ok' as StateType,
+      data: {
+        temperature: {
+          id: 'temperature',
+          value: 220,
+          state: 'ok',
+        },
+        verticalVibration: {
+          id: 'vertical-vibration',
+          value: 22,
+          state: 'danger',
+        },
+        horizontalVibration: {
+          id: 'horizontal-vibration',
+          value: 10,
+          state: 'caution',
+        },
+        axialVibration: {
+          id: 'axial-vibration',
+          value: 0,
+          state: 'ok',
+        },
+      }
     },{
       id: nextId(),
       type: 'bearer',
-      title: '№ 9 п-к',
-      position: 9,
+      name: '№ 9 п-к',
+      location: 'bearer-9',
       temperature: 'caution' as StateType,
       vibration: 'ok' as StateType,
+      data: {
+        temperature: {
+          id: 'temperature',
+          value: 220,
+          state: 'ok',
+        },
+      }
     },{
       id: nextId(),
       type: 'bearer',
-      title: '№ 1 п-к',
-      position: 1,
+      name: '№ 1 п-к',
+      location: 'bearer-1',
       temperature: 'ok' as StateType,
       vibration: 'ok' as StateType,
+      data: {
+        temperature: {
+          id: 'temperature',
+          value: 220,
+          state: 'ok',
+        },
+        verticalVibration: {
+          id: 'vertical-vibration',
+          value: 22,
+          state: 'danger',
+        },
+        horizontalVibration: {
+          id: 'horizontal-vibration',
+          value: 10,
+          state: 'caution',
+        },
+        axialVibration: {
+          id: 'axial-vibration',
+          value: 0,
+          state: 'ok',
+        },
+      }
     },{
       id: nextId(),
       type: 'bearer',
-      title: '№ 2 п-к',
-      position: 2,
+      name: '№ 2 п-к',
+      location: 'bearer-2',
       temperature: 'ok' as StateType,
       vibration: 'ok' as StateType,
+      data: {
+        temperature: {
+          id: 'temperature',
+          value: 220,
+          state: 'ok',
+        },
+        verticalVibration: {
+          id: 'vertical-vibration',
+          value: 22,
+          state: 'danger',
+        },
+        horizontalVibration: {
+          id: 'horizontal-vibration',
+          value: 10,
+          state: 'caution',
+        },
+        axialVibration: {
+          id: 'axial-vibration',
+          value: 0,
+          state: 'ok',
+        },
+      }
     },{
       id: nextId(),
       type: 'bearer',
-      title: '№ 3 п-к',
-      position: 3,
+      name: '№ 3 п-к',
+      location: 'bearer-3',
       temperature: 'ok' as StateType,
       vibration: 'ok' as StateType,
+      data: {
+        temperature: {
+          id: 'temperature',
+          value: 220,
+          state: 'ok',
+        },
+      }
     },{
       id: nextId(),
       type: 'bearer',
-      title: '№ 4 п-к',
-      position: 4,
+      name: '№ 4 п-к',
+      location: 'bearer-4',
       temperature: 'ok' as StateType,
       vibration: 'danger' as StateType,
+      data: {
+        temperature: {
+          id: 'temperature',
+          value: 300,
+          state: 'caution',
+        },
+        verticalVibration: {
+          id: 'vertical-vibration',
+          value: 22,
+          state: 'danger',
+        },
+        horizontalVibration: {
+          id: 'horizontal-vibration',
+          value: 10,
+          state: 'caution',
+        },
+        axialVibration: {
+          id: 'axial-vibration',
+          value: 0,
+          state: 'ok',
+        },
+      }
     },{
       id: nextId(),
       type: 'bearer',
-      title: '№ 5 п-к',
-      position: 5,
+      name: '№ 5 п-к',
+      location: 'bearer-5',
       temperature: 'ok' as StateType,
       vibration: 'caution' as StateType,
+      data: {
+        temperature: {
+          id: 'temperature',
+          value: 220,
+          state: 'ok',
+        },
+        verticalVibration: {
+          id: 'vertical-vibration',
+          value: 22,
+          state: 'danger',
+        },
+        horizontalVibration: {
+          id: 'horizontal-vibration',
+          value: 10,
+          state: 'caution',
+        },
+        axialVibration: {
+          id: 'axial-vibration',
+          value: 0,
+          state: 'ok',
+        },
+      }
     },{
       id: nextId(),
       type: 'bearer',
-      title: '№ 6 п-к',
-      position: 6,
+      name: '№ 6 п-к',
+      location: 'bearer-6',
       temperature: 'ok' as StateType,
       vibration: 'danger' as StateType,
+      data: {
+        temperature: {
+          id: 'temperature',
+          value: 220,
+          state: 'ok',
+        },
+        verticalVibration: {
+          id: 'vertical-vibration',
+          value: 22,
+          state: 'danger',
+        },
+        horizontalVibration: {
+          id: 'horizontal-vibration',
+          value: 10,
+          state: 'caution',
+        },
+        axialVibration: {
+          id: 'axial-vibration',
+          value: 0,
+          state: 'ok',
+        },
+      }
     },{
       id: nextId(),
       type: 'bearer',
-      title: '№ 7 п-к',
-      position: 7,
+      name: '№ 7 п-к',
+      location: 'bearer-7',
       temperature: 'caution' as StateType,
       vibration: 'ok' as StateType,
+      data: {
+        temperature: {
+          id: 'temperature',
+          value: 220,
+          state: 'ok',
+        },
+        verticalVibration: {
+          id: 'vertical-vibration',
+          value: 22,
+          state: 'danger',
+        },
+        horizontalVibration: {
+          id: 'horizontal-vibration',
+          value: 10,
+          state: 'caution',
+        },
+        axialVibration: {
+          id: 'axial-vibration',
+          value: 0,
+          state: 'ok',
+        },
+      }
     },{
       id: nextId(),
       type: 'bearer',
-      title: '№ 8 п-к',
-      position: 8,
+      name: '№ 8 п-к',
+      location: 'bearer-8',
       temperature: 'danger' as StateType,
       vibration: 'ok' as StateType,
+      data: {
+        temperature: {
+          id: 'temperature',
+          value: 220,
+          state: 'ok',
+        },
+        verticalVibration: {
+          id: 'vertical-vibration',
+          value: 22,
+          state: 'danger',
+        },
+        horizontalVibration: {
+          id: 'horizontal-vibration',
+          value: 10,
+          state: 'caution',
+        },
+        axialVibration: {
+          id: 'axial-vibration',
+          value: 0,
+          state: 'ok',
+        },
+      }
     },{
       id: nextId(),
       type: 'bearer',
-      title: '№ 9 п-к',
-      position: 9,
+      name: '№ 9 п-к',
+      location: 'bearer-9',
       temperature: 'caution' as StateType,
       vibration: 'danger' as StateType,
+      data: {
+        temperature: {
+          id: 'temperature',
+          value: 220,
+          state: 'ok',
+        },
+      }
     },{
       id: nextId(),
       type: 'bearer',
-      title: '№ 1 п-к',
-      position: 1,
+      name: '№ 1 п-к',
+      location: 'bearer-1',
       temperature: 'ok' as StateType,
       vibration: 'caution' as StateType,
+      data: {
+        temperature: {
+          id: 'temperature',
+          value: 220,
+          state: 'ok',
+        },
+        verticalVibration: {
+          id: 'vertical-vibration',
+          value: 22,
+          state: 'danger',
+        },
+        horizontalVibration: {
+          id: 'horizontal-vibration',
+          value: 10,
+          state: 'caution',
+        },
+        axialVibration: {
+          id: 'axial-vibration',
+          value: 0,
+          state: 'ok',
+        },
+      }
     },{
       id: nextId(),
       type: 'bearer',
-      title: '№ 2 п-к',
-      position: 2,
+      name: '№ 2 п-к',
+      location: 'bearer-2',
       temperature: 'caution' as StateType,
       vibration: 'caution' as StateType,
+      data: {
+        temperature: {
+          id: 'temperature',
+          value: 220,
+          state: 'ok',
+        },
+        verticalVibration: {
+          id: 'vertical-vibration',
+          value: 22,
+          state: 'danger',
+        },
+        horizontalVibration: {
+          id: 'horizontal-vibration',
+          value: 10,
+          state: 'caution',
+        },
+        axialVibration: {
+          id: 'axial-vibration',
+          value: 0,
+          state: 'ok',
+        },
+      }
     },{
       id: nextId(),
       type: 'bearer',
-      title: '№ 3 п-к',
-      position: 3,
+      name: '№ 3 п-к',
+      location: 'bearer-3',
       temperature: 'caution' as StateType,
       vibration: 'ok' as StateType,
+      data: {
+        temperature: {
+          id: 'temperature',
+          value: 220,
+          state: 'ok',
+        },
+      }
     },{
       id: nextId(),
       type: 'bearer',
-      title: '№ 4 п-к',
-      position: 4,
+      name: '№ 4 п-к',
+      location: 'bearer-4',
       temperature: 'ok' as StateType,
       vibration: 'caution' as StateType,
+      data: {
+        temperature: {
+          id: 'temperature',
+          value: 220,
+          state: 'ok',
+        },
+        verticalVibration: {
+          id: 'vertical-vibration',
+          value: 22,
+          state: 'danger',
+        },
+        horizontalVibration: {
+          id: 'horizontal-vibration',
+          value: 10,
+          state: 'caution',
+        },
+        axialVibration: {
+          id: 'axial-vibration',
+          value: 0,
+          state: 'ok',
+        },
+      }
     },{
       id: nextId(),
       type: 'bearer',
-      title: '№ 5 п-к',
-      position: 5,
+      name: '№ 5 п-к',
+      location: 'bearer-5',
       temperature: 'caution' as StateType,
       vibration: 'ok' as StateType,
+      data: {
+        temperature: {
+          id: 'temperature',
+          value: 220,
+          state: 'ok',
+        },
+        verticalVibration: {
+          id: 'vertical-vibration',
+          value: 22,
+          state: 'danger',
+        },
+        horizontalVibration: {
+          id: 'horizontal-vibration',
+          value: 10,
+          state: 'caution',
+        },
+        axialVibration: {
+          id: 'axial-vibration',
+          value: 0,
+          state: 'ok',
+        },
+      }
     },{
       id: nextId(),
       type: 'bearer',
-      title: '№ 6 п-к',
-      position: 6,
+      name: '№ 6 п-к',
+      location: 'bearer-6',
       temperature: 'ok' as StateType,
       vibration: 'caution' as StateType,
+      data: {
+        temperature: {
+          id: 'temperature',
+          value: 220,
+          state: 'ok',
+        },
+        verticalVibration: {
+          id: 'vertical-vibration',
+          value: 22,
+          state: 'danger',
+        },
+        horizontalVibration: {
+          id: 'horizontal-vibration',
+          value: 10,
+          state: 'caution',
+        },
+        axialVibration: {
+          id: 'axial-vibration',
+          value: 0,
+          state: 'ok',
+        },
+      }
     },{
       id: nextId(),
       type: 'bearer',
-      title: '№ 7 п-к',
-      position: 7,
+      name: '№ 7 п-к',
+      location: 'bearer-7',
       temperature: 'ok' as StateType,
       vibration: 'ok' as StateType,
+      data: {
+        temperature: {
+          id: 'temperature',
+          value: 220,
+          state: 'ok',
+        },
+        verticalVibration: {
+          id: 'vertical-vibration',
+          value: 22,
+          state: 'danger',
+        },
+        horizontalVibration: {
+          id: 'horizontal-vibration',
+          value: 10,
+          state: 'caution',
+        },
+        axialVibration: {
+          id: 'axial-vibration',
+          value: 0,
+          state: 'ok',
+        },
+      }
     },{
       id: nextId(),
       type: 'bearer',
-      title: '№ 8 п-к',
-      position: 8,
+      name: '№ 8 п-к',
+      location: 'bearer-8',
       temperature: 'ok' as StateType,
       vibration: 'caution' as StateType,
+      data: {
+        temperature: {
+          id: 'temperature',
+          value: 220,
+          state: 'ok',
+        },
+        verticalVibration: {
+          id: 'vertical-vibration',
+          value: 22,
+          state: 'danger',
+        },
+        horizontalVibration: {
+          id: 'horizontal-vibration',
+          value: 10,
+          state: 'caution',
+        },
+        axialVibration: {
+          id: 'axial-vibration',
+          value: 0,
+          state: 'ok',
+        },
+      }
     },{
       id: nextId(),
       type: 'bearer',
-      title: '№ 9 п-к',
-      position: 9,
+      name: '№ 9 п-к',
+      location: 'bearer-9',
       temperature: 'ok' as StateType,
       vibration: 'ok' as StateType,
+      data: {
+        temperature: {
+          id: 'temperature',
+          value: 220,
+          state: 'ok',
+        },
+      }
     },{
       id: nextId(),
       type: 'bearer',
-      title: '№ 1 п-к',
-      position: 1,
+      name: '№ 1 п-к',
+      location: 'bearer-1',
       temperature: 'ok' as StateType,
       vibration: 'ok' as StateType,
+      data: {
+        temperature: {
+          id: 'temperature',
+          value: 220,
+          state: 'ok',
+        },
+        verticalVibration: {
+          id: 'vertical-vibration',
+          value: 22,
+          state: 'danger',
+        },
+        horizontalVibration: {
+          id: 'horizontal-vibration',
+          value: 10,
+          state: 'caution',
+        },
+        axialVibration: {
+          id: 'axial-vibration',
+          value: 0,
+          state: 'ok',
+        },
+      }
     },{
       id: nextId(),
       type: 'bearer',
-      title: '№ 2 п-к',
-      position: 2,
+      name: '№ 2 п-к',
+      location: 'bearer-2',
       temperature: 'danger' as StateType,
       vibration: 'caution' as StateType,
+      data: {
+        temperature: {
+          id: 'temperature',
+          value: 220,
+          state: 'ok',
+        },
+        verticalVibration: {
+          id: 'vertical-vibration',
+          value: 22,
+          state: 'danger',
+        },
+        horizontalVibration: {
+          id: 'horizontal-vibration',
+          value: 10,
+          state: 'caution',
+        },
+        axialVibration: {
+          id: 'axial-vibration',
+          value: 0,
+          state: 'ok',
+        },
+      }
     },{
       id: nextId(),
       type: 'bearer',
-      title: '№ 3 п-к',
-      position: 3,
+      name: '№ 3 п-к',
+      location: 'bearer-3',
       temperature: 'ok' as StateType,
       vibration: 'ok' as StateType,
+      data: {
+        temperature: {
+          id: 'temperature',
+          value: 220,
+          state: 'ok',
+        },
+      }
     },{
       id: nextId(),
       type: 'bearer',
-      title: '№ 4 п-к',
-      position: 4,
+      name: '№ 4 п-к',
+      location: 'bearer-4',
       temperature: 'ok' as StateType,
       vibration: 'ok' as StateType,
+      data: {
+        temperature: {
+          id: 'temperature',
+          value: 220,
+          state: 'ok',
+        },
+        verticalVibration: {
+          id: 'vertical-vibration',
+          value: 22,
+          state: 'danger',
+        },
+        horizontalVibration: {
+          id: 'horizontal-vibration',
+          value: 10,
+          state: 'caution',
+        },
+        axialVibration: {
+          id: 'axial-vibration',
+          value: 0,
+          state: 'ok',
+        },
+      }
     },{
       id: nextId(),
       type: 'bearer',
-      title: '№ 5 п-к',
-      position: 5,
+      name: '№ 5 п-к',
+      location: 'bearer-5',
       temperature: 'caution' as StateType,
       vibration: 'caution' as StateType,
+      data: {
+        temperature: {
+          id: 'temperature',
+          value: 220,
+          state: 'ok',
+        },
+        verticalVibration: {
+          id: 'vertical-vibration',
+          value: 22,
+          state: 'danger',
+        },
+        horizontalVibration: {
+          id: 'horizontal-vibration',
+          value: 10,
+          state: 'caution',
+        },
+        axialVibration: {
+          id: 'axial-vibration',
+          value: 0,
+          state: 'ok',
+        },
+      }
     },{
       id: nextId(),
       type: 'bearer',
-      title: '№ 6 п-к',
-      position: 6,
+      name: '№ 6 п-к',
+      location: 'bearer-6',
       temperature: 'caution' as StateType,
       vibration: 'caution' as StateType,
+      data: {
+        temperature: {
+          id: 'temperature',
+          value: 220,
+          state: 'ok',
+        },
+        verticalVibration: {
+          id: 'vertical-vibration',
+          value: 22,
+          state: 'danger',
+        },
+        horizontalVibration: {
+          id: 'horizontal-vibration',
+          value: 10,
+          state: 'caution',
+        },
+        axialVibration: {
+          id: 'axial-vibration',
+          value: 0,
+          state: 'ok',
+        },
+      }
     },{
       id: nextId(),
       type: 'bearer',
-      title: '№ 7 п-к',
-      position: 7,
+      name: '№ 7 п-к',
+      location: 'bearer-7',
       temperature: 'ok' as StateType,
       vibration: 'ok' as StateType,
+      data: {
+        temperature: {
+          id: 'temperature',
+          value: 220,
+          state: 'ok',
+        },
+        verticalVibration: {
+          id: 'vertical-vibration',
+          value: 22,
+          state: 'danger',
+        },
+        horizontalVibration: {
+          id: 'horizontal-vibration',
+          value: 10,
+          state: 'caution',
+        },
+        axialVibration: {
+          id: 'axial-vibration',
+          value: 0,
+          state: 'ok',
+        },
+      }
     },{
       id: nextId(),
       type: 'bearer',
-      title: '№ 8 п-к',
-      position: 8,
+      name: '№ 8 п-к',
+      location: 'bearer-8',
       temperature: 'danger' as StateType,
       vibration: 'danger' as StateType,
+      data: {
+        temperature: {
+          id: 'temperature',
+          value: 220,
+          state: 'ok',
+        },
+        verticalVibration: {
+          id: 'vertical-vibration',
+          value: 22,
+          state: 'danger',
+        },
+        horizontalVibration: {
+          id: 'horizontal-vibration',
+          value: 10,
+          state: 'caution',
+        },
+        axialVibration: {
+          id: 'axial-vibration',
+          value: 0,
+          state: 'ok',
+        },
+      }
     },{
       id: nextId(),
       type: 'bearer',
-      title: '№ 9 п-к',
-      position: 9,
+      name: '№ 9 п-к',
+      location: 'bearer-9',
       temperature: 'caution' as StateType,
       vibration: 'danger' as StateType,
+      data: {
+        temperature: {
+          id: 'temperature',
+          value: 220,
+          state: 'ok',
+        },
+      }
     },
   ]
   
@@ -336,7 +1008,7 @@ export namespace MockApi {
   
   // эксгаустеры
   export type ExhausterType = typeof exhausters[number]
-  const exhausters = [
+  export const exhausters = [
     {
       id: nextId(),
       name: 'Эксгаустер № 1 (У-171)',

@@ -1,6 +1,6 @@
-import ThermometerIc from "../../icons/ThermometerIc";
-import RadioIc from "../../icons/RadioIc";
-import WaterDropIc from "../../icons/WaterDropIc";
+import ThermometerIc from "../../../../components/icons/ThermometerIc";
+import RadioIc from "../../../../components/icons/RadioIc";
+import WaterDropIc from "../../../../components/icons/WaterDropIc";
 
 import { StyledCommon } from "src/style/styled-common";
 import center = StyledCommon.center;

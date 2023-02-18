@@ -1,25 +1,30 @@
 import Arrow1Right from "src/components/icons/Arrow1Right";
 import styled, {keyframes} from "styled-components";
 import {StyledCommon} from "src/style/styled-common";
+import {Link} from "react-router-dom";
 
 
 
 
 export namespace Header {
   
-  import row = StyledCommon.row;
-  import resetButton = StyledCommon.resetButton;
-  import center = StyledCommon.center;
+  import row = StyledCommon.row
+  import resetButton = StyledCommon.resetButton
+  import center = StyledCommon.center
+  
   type HeaderProps = {
     isWorking: boolean
     name: string
+    id: string
   }
   export function Header(props: HeaderProps){
     return <Frame>
       { props.isWorking && <IndicatorGreen/> }
       { !props.isWorking && <IndicatorRed/> }
       <Title>{props.name}</Title>
-      <Button><Arrow/></Button>
+      <Link to={`/exhauster-detailed/${props.id}`}>
+        <Button><Arrow/></Button>
+      </Link>
     </Frame>
   }
   

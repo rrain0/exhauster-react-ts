@@ -1,6 +1,6 @@
 import styled from "styled-components";
 import {StyledCommon} from "src/style/styled-common";
-import ExhausterSvg from "../ExhausterSvg";
+import ExhausterSvg from "../../../components/ExhausterSvg";
 import center = StyledCommon.center;
 import {Item} from "./DropDownList/Item";
 

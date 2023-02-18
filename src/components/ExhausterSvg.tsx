@@ -2,7 +2,7 @@ import { ReactComponent as SvgComponent } from 'src/res/icon/exhauster.svg'
 import React, {useEffect, useLayoutEffect, useRef} from 'react'
 import {ReactUtils} from "src/utils/react-utils";
 import ReactMemoTyped = ReactUtils.ReactMemoTyped;
-import {Item} from "./ExhausterCard/DropDownList/Item";
+import {Item} from "../pages/MainScreen/ExhausterCard/DropDownList/Item";
 import ItemType = Item.ItemType;
 
 
@@ -23,16 +23,16 @@ const ExhausterSvg = ({ bearers, size, ...props }: SvgIconProps) => {
     const svg = svgRef.current
     if (svg) {
       for (let i = 1; i <= 9; i++) {
-        svg.style.removeProperty(`--bearer-position-${i}`)
+        svg.style.removeProperty(`--bearer-${i}`)
       }
       bearers.forEach(it => {
         if (it.type==='bearer'){
           if (it.temperature === 'danger' || it.vibration === 'danger') {
-            svg.style.setProperty(`--bearer-position-${it.position}`, '#E32112')
+            svg.style.setProperty(`--${it.location}`, '#E32112')
           } else if (it.temperature === 'caution' || it.vibration === 'caution') {
-            svg.style.setProperty(`--bearer-position-${it.position}`, '#F9A823')
+            svg.style.setProperty(`--${it.location}`, '#F9A823')
           } else {
-            svg.style.setProperty(`--bearer-position-${it.position}`, '#6EA566')
+            svg.style.setProperty(`--${it.location}`, '#6EA566')
           }
         }
       })

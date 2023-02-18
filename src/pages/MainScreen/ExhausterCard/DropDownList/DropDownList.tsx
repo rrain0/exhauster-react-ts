@@ -1,5 +1,5 @@
 import {useEffect, useState} from "react";
-import Arrow1Right from "../../icons/Arrow1Right";
+import Arrow1Right from "../../../../components/icons/Arrow1Right";
 import styled from "styled-components";
 import {StyledCommon} from "src/style/styled-common";
 import { Item } from "./Item";

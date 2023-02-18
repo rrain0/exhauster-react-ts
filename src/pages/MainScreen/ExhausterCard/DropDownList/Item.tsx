@@ -1,14 +1,18 @@
-import WaterDropIc from "../../icons/WaterDropIc";
-import BearerIc from "../../icons/BearerIc";
+import WaterDropIc from "../../../../components/icons/WaterDropIc";
+import BearerIc from "../../../../components/icons/BearerIc";
 import styled from "styled-components";
 import {StyledCommon} from "src/style/styled-common";
 import {Utils} from "src/utils/utils";
 import empty = Utils.empty;
 import row = StyledCommon.row;
 import { MarkView } from "./MarkView";
+import {ExausterDetailedDataTypes} from "../../../ExhausterDetailedScreen/ExausterDetailedDataTypes";
 
 
 export namespace Item {
+  
+  import BearerDataType = ExausterDetailedDataTypes.BearerDataType;
+  import LocationType = ExausterDetailedDataTypes.LocationType;
   
   export interface OilType {
     id: string
@@ -19,10 +23,11 @@ export namespace Item {
   export interface BearerType {
     id: string
     type: 'bearer'
-    title: string
-    position: number|string
+    name: string
+    location: LocationType
     temperature?: empty|'ok'|'caution'|'danger'
     vibration?: empty|'ok'|'caution'|'danger'
+    data: BearerDataType
   }
   export type ItemType = OilType|BearerType
   export interface ItemProps {
@@ -45,7 +50,7 @@ export namespace Item {
       </> }
       { it.type==='bearer' && <>
           <Bearer/>
-          <WrapFlex1><ItemTitle>{it.title}</ItemTitle></WrapFlex1>
+          <WrapFlex1><ItemTitle>{it.name}</ItemTitle></WrapFlex1>
         { it.temperature && <MarkView.MarkView mark={{ type: 'temperature', state: it.temperature }} /> }
         { it.vibration && <MarkView.MarkView mark={{ type: 'vibration', state: it.vibration }} /> }
       </> }

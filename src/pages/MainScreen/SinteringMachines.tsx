@@ -1,4 +1,4 @@
-import ExhausterCard from "src/components/ExhausterCard/ExhausterCard";
+import ExhausterCard from "src/pages/MainScreen/ExhausterCard/ExhausterCard";
 import {MockApi} from "src/api-map/mock-api";
 import styled from "styled-components";
 import {StyledCommon} from "src/style/styled-common";

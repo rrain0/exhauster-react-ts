@@ -21,28 +21,28 @@
 </mask>
 
 <!-- подшипник 4 - изменять fill-->
-<rect x="76.9999" y="29.525" width="21" height="16" rx="0.757583" fill="var(--bearer-position-4, #414F4F)" stroke="#8D9595" stroke-width="2" mask="url(#path-13-inside-1_392_14034)"/>
+<rect x="76.9999" y="29.525" width="21" height="16" rx="0.757583" fill="var(--bearer-4, #414F4F)" stroke="#8D9595" stroke-width="2" mask="url(#path-13-inside-1_392_14034)"/>
 
 <mask id="path-14-inside-2_392_14034" fill="white">
 <rect x="76.9999" y="48.525" width="21" height="16" rx="0.757583"/>
 </mask>
 
 <!-- подшипник 6 - изменять fill-->
-<rect x="76.9999" y="48.525" width="21" height="16" rx="0.757583" fill="var(--bearer-position-6, #414F4F)" stroke="#8D9595" stroke-width="2" mask="url(#path-14-inside-2_392_14034)"/>
+<rect x="76.9999" y="48.525" width="21" height="16" rx="0.757583" fill="var(--bearer-6, #414F4F)" stroke="#8D9595" stroke-width="2" mask="url(#path-14-inside-2_392_14034)"/>
 
 <mask id="path-15-inside-3_392_14034" fill="white">
 <rect x="101" y="29.525" width="21" height="16" rx="0.757583"/>
 </mask>
 
 <!-- подшипник 3 - изменять fill-->
-<rect x="101" y="29.525" width="21" height="16" rx="0.757583" fill="var(--bearer-position-3, #414F4F)" stroke="#8D9595" stroke-width="2" mask="url(#path-15-inside-3_392_14034)"/>
+<rect x="101" y="29.525" width="21" height="16" rx="0.757583" fill="var(--bearer-3, #414F4F)" stroke="#8D9595" stroke-width="2" mask="url(#path-15-inside-3_392_14034)"/>
 
 <mask id="path-16-inside-4_392_14034" fill="white">
 <rect x="101" y="48.525" width="21" height="16" rx="0.757583"/>
 </mask>
 
 <!-- подшипник 5 - изменять fill-->
-<rect x="101" y="48.525" width="21" height="16" rx="0.757583" fill="var(--bearer-position-5, #414F4F)" stroke="#8D9595" stroke-width="2" mask="url(#path-16-inside-4_392_14034)"/>
+<rect x="101" y="48.525" width="21" height="16" rx="0.757583" fill="var(--bearer-5, #414F4F)" stroke="#8D9595" stroke-width="2" mask="url(#path-16-inside-4_392_14034)"/>
 
 <rect y="46.5248" width="16" height="28" rx="2.27275" fill="#677272"/>
 <path d="M2.5 47.8198L3.145 48.2026L3.79904 48.5698L3.79 49.3198L3.79904 50.0698L3.145 50.4369L2.5 50.8198L1.855 50.4369L1.20096 50.0698L1.21 49.3198L1.20096 48.5698L1.855 48.2026L2.5 47.8198Z" fill="#8D9595"/>
@@ -55,7 +55,7 @@
 </mask>
 
 <!-- подшипник 8 & 9 - изменять fill-->
-<rect x="3.00006" y="51.5248" width="10" height="18" rx="0.757583" fill="var(--bearer-position-8, var(--bearer-position-9, #414F4F))" stroke="#8D9595" stroke-width="2" mask="url(#path-23-inside-5_392_14034)"/>
+<rect x="3.00006" y="51.5248" width="10" height="18" rx="0.757583" fill="var(--bearer-8, var(--bearer-9, #414F4F))" stroke="#8D9595" stroke-width="2" mask="url(#path-23-inside-5_392_14034)"/>
 
 <rect x="45" y="46.5249" width="16" height="28" rx="2.27275" fill="#677272"/>
 <path d="M47.5 47.8198L48.145 48.2027L48.799 48.5698L48.79 49.3198L48.799 50.0698L48.145 50.437L47.5 50.8198L46.855 50.437L46.201 50.0698L46.21 49.3198L46.201 48.5698L46.855 48.2027L47.5 47.8198Z" fill="#8D9595"/>
@@ -68,7 +68,7 @@
 </mask>
 
 <!-- подшипник 7 - изменять fill-->
-<rect x="48" y="51.5249" width="10" height="18" rx="0.757583" fill="var(--bearer-position-7, #414F4F)" stroke="#8D9595" stroke-width="2" mask="url(#path-30-inside-6_392_14034)"/>
+<rect x="48" y="51.5249" width="10" height="18" rx="0.757583" fill="var(--bearer-7, #414F4F)" stroke="#8D9595" stroke-width="2" mask="url(#path-30-inside-6_392_14034)"/>
 
 <rect x="140" y="19.5249" width="16" height="28" rx="2.27275" fill="#677272"/>
 <path d="M142.5 20.8198L143.145 21.2027L143.799 21.5698L143.79 22.3198L143.799 23.0698L143.145 23.437L142.5 23.8198L141.855 23.437L141.201 23.0698L141.21 22.3198L141.201 21.5698L141.855 21.2027L142.5 20.8198Z" fill="#8D9595"/>
@@ -81,7 +81,7 @@
 </mask>
 
 <!-- подшипник 2 - изменять fill-->
-<rect x="143" y="24.5249" width="10" height="18" rx="0.757583" fill="var(--bearer-position-2, #414F4F)" stroke="#8D9595" stroke-width="2" mask="url(#path-37-inside-7_392_14034)"/>
+<rect x="143" y="24.5249" width="10" height="18" rx="0.757583" fill="var(--bearer-2, #414F4F)" stroke="#8D9595" stroke-width="2" mask="url(#path-37-inside-7_392_14034)"/>
 
 <rect x="224" y="19.5249" width="16" height="28" rx="2.27275" fill="#677272"/>
 <path d="M226.5 20.8198L227.145 21.2027L227.799 21.5698L227.79 22.3198L227.799 23.0698L227.145 23.437L226.5 23.8198L225.855 23.437L225.201 23.0698L225.21 22.3198L225.201 21.5698L225.855 21.2027L226.5 20.8198Z" fill="#8D9595"/>
@@ -94,7 +94,7 @@
 </mask>
 
 <!-- подшипник 1 - изменять fill-->
-<rect x="227" y="24.5249" width="10" height="18" rx="0.757583" fill="var(--bearer-position-1, #414F4F)" stroke="#8D9595" stroke-width="2" mask="url(#path-44-inside-8_392_14034)"/>
+<rect x="227" y="24.5249" width="10" height="18" rx="0.757583" fill="var(--bearer-1, #414F4F)" stroke="#8D9595" stroke-width="2" mask="url(#path-44-inside-8_392_14034)"/>
 
 <rect x="19.526" y="32.0509" width="22.9479" height="54.9479" fill="#8D9595" stroke="#677272" stroke-width="1.05208"/>
 <rect x="19.274" y="33.9619" width="23.0458" height="1.40277" fill="#677272"/>

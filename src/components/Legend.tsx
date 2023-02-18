@@ -7,43 +7,49 @@ import rowWrap = StyledCommon.rowWrap;
 import row = StyledCommon.row;
 
 
-
-const Legend = ()=>{
+type LegendProps = {
+  mode?: ('marks'|'dangers')[]
+}
+const Legend = ({ mode = ['marks','dangers'] }: LegendProps)=>{
+  
   return <Row>
-    
-    <Element>
-      <LetterIcon>
-        <Letter>T</Letter>
-        <Thermometer/>
-      </LetterIcon>
-      <Title>Температура</Title>
-    </Element>
-    
-    <Element>
-      <LetterIcon>
-        <Letter>V</Letter>
-        <Radio/>
-      </LetterIcon>
-      <Title>Вибрация</Title>
-    </Element>
-    
-    <Element>
-      <LetterIcon>
-        <Letter>L</Letter>
-        <WaterDrop/>
-      </LetterIcon>
-      <Title>Уровень масла</Title>
-    </Element>
-    
-    <Element>
-      <YellowSquare/>
-      <Title>Предупреждение</Title>
-    </Element>
-    
-    <Element>
-      <RedSquare/>
-      <Title>Опасность</Title>
-    </Element>
+    { mode.includes('marks') && <>
+      <Element>
+          <LetterIcon>
+              <Letter>T</Letter>
+              <Thermometer/>
+          </LetterIcon>
+          <Title>Температура</Title>
+      </Element>
+
+      <Element>
+          <LetterIcon>
+              <Letter>V</Letter>
+              <Radio/>
+          </LetterIcon>
+          <Title>Вибрация</Title>
+      </Element>
+
+      <Element>
+          <LetterIcon>
+              <Letter>L</Letter>
+              <WaterDrop/>
+          </LetterIcon>
+          <Title>Уровень масла</Title>
+      </Element>
+    </> }
+  
+    { mode.includes('dangers') && <>
+      <Element>
+          <YellowSquare/>
+          <Title>Предупреждение</Title>
+      </Element>
+
+      <Element>
+          <RedSquare/>
+          <Title>Опасность</Title>
+      </Element>
+    </> }
   
   </Row>
 }

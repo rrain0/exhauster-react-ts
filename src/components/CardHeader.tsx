@@ -6,15 +6,17 @@ import center = StyledCommon.center;
 
 
 
-
-const Header = ()=>{
+type CardHeaderProps = {
+  title: string
+}
+const CardHeader = (props: CardHeaderProps)=>{
   
   return <Frame>
     <IconBox><Icon/></IconBox>
-    <Title>Главный экран</Title>
+    <Title>{props.title}</Title>
   </Frame>
 }
-export default Header
+export default CardHeader
 
 const Frame = styled.div`
   width: 100%;
