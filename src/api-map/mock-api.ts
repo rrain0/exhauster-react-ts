@@ -10,8 +10,12 @@ import BearerType = Item.BearerType;
 
 
 
+
 export namespace MockApi {
 
+
+  
+  
 
 // состояние масла эксгаустера
   const oils: OilType[] = [
@@ -38,6 +42,27 @@ export namespace MockApi {
     },
   ]
   
+  
+  
+  
+  function getVibraition(bearer: BearerType){
+    if (
+      bearer.data.verticalVibration?.state==='danger' ||
+      bearer.data.horizontalVibration?.state==='danger' ||
+      bearer.data.axialVibration?.state==='danger'
+    ) return 'danger'
+    else if (
+      bearer.data.verticalVibration?.state==='caution' ||
+      bearer.data.horizontalVibration?.state==='caution' ||
+      bearer.data.axialVibration?.state==='caution'
+    ) return 'caution'
+    else if (
+      bearer.data.verticalVibration?.state==='ok' &&
+      bearer.data.horizontalVibration?.state==='ok' &&
+      bearer.data.axialVibration?.state==='ok'
+    ) return 'caution'
+    else return undefined
+  }
   // состояние подшипников эксгаустера
   const bearers: BearerType[] = [
     {
@@ -45,8 +70,8 @@ export namespace MockApi {
       type: 'bearer',
       name: '№ 1 п-к',
       location: 'bearer-1',
-      temperature: 'ok' as StateType,
-      vibration: 'ok' as StateType,
+      get temperature(){ return this.data.temperature.state },
+      get vibration(){ return getVibraition(this) },
       data: {
         temperature: {
           id: 'temperature',
@@ -74,8 +99,8 @@ export namespace MockApi {
       type: 'bearer',
       name: '№ 2 п-к',
       location: 'bearer-2',
-      temperature: 'ok' as StateType,
-      vibration: 'ok' as StateType,
+      get temperature(){ return this.data.temperature.state },
+      get vibration(){ return getVibraition(this) },
       data: {
         temperature: {
           id: 'temperature',
@@ -103,8 +128,8 @@ export namespace MockApi {
       type: 'bearer',
       name: '№ 3 п-к',
       location: 'bearer-3',
-      temperature: 'caution' as StateType,
-      vibration: 'ok' as StateType,
+      get temperature(){ return this.data.temperature.state },
+      get vibration(){ return getVibraition(this) },
       data: {
         temperature: {
           id: 'temperature',
@@ -117,27 +142,12 @@ export namespace MockApi {
       type: 'bearer',
       name: '№ 4 п-к',
       location: 'bearer-4',
-      temperature: 'ok' as StateType,
-      vibration: 'ok' as StateType,
+      get temperature(){ return this.data.temperature.state },
+      get vibration(){ return getVibraition(this) },
       data: {
         temperature: {
           id: 'temperature',
           value: 220,
-          state: 'ok',
-        },
-        verticalVibration: {
-          id: 'vertical-vibration',
-          value: 22,
-          state: 'danger',
-        },
-        horizontalVibration: {
-          id: 'horizontal-vibration',
-          value: 10,
-          state: 'caution',
-        },
-        axialVibration: {
-          id: 'axial-vibration',
-          value: 0,
           state: 'ok',
         },
       }
@@ -146,8 +156,8 @@ export namespace MockApi {
       type: 'bearer',
       name: '№ 5 п-к',
       location: 'bearer-5',
-      temperature: 'ok' as StateType,
-      vibration: 'caution' as StateType,
+      get temperature(){ return this.data.temperature.state },
+      get vibration(){ return getVibraition(this) },
       data: {
         temperature: {
           id: 'temperature',
@@ -175,8 +185,8 @@ export namespace MockApi {
       type: 'bearer',
       name: '№ 6 п-к',
       location: 'bearer-6',
-      temperature: 'ok' as StateType,
-      vibration: 'ok' as StateType,
+      get temperature(){ return this.data.temperature.state },
+      get vibration(){ return getVibraition(this) },
       data: {
         temperature: {
           id: 'temperature',
@@ -204,8 +214,8 @@ export namespace MockApi {
       type: 'bearer',
       name: '№ 7 п-к',
       location: 'bearer-7',
-      temperature: 'ok' as StateType,
-      vibration: 'ok' as StateType,
+      get temperature(){ return this.data.temperature.state },
+      get vibration(){ return getVibraition(this) },
       data: {
         temperature: {
           id: 'temperature',
@@ -233,8 +243,8 @@ export namespace MockApi {
       type: 'bearer',
       name: '№ 8 п-к',
       location: 'bearer-8',
-      temperature: 'ok' as StateType,
-      vibration: 'ok' as StateType,
+      get temperature(){ return this.data.temperature.state },
+      get vibration(){ return getVibraition(this) },
       data: {
         temperature: {
           id: 'temperature',
@@ -262,8 +272,8 @@ export namespace MockApi {
       type: 'bearer',
       name: '№ 9 п-к',
       location: 'bearer-9',
-      temperature: 'caution' as StateType,
-      vibration: 'ok' as StateType,
+      get temperature(){ return this.data.temperature.state },
+      get vibration(){ return getVibraition(this) },
       data: {
         temperature: {
           id: 'temperature',
@@ -276,8 +286,8 @@ export namespace MockApi {
       type: 'bearer',
       name: '№ 1 п-к',
       location: 'bearer-1',
-      temperature: 'ok' as StateType,
-      vibration: 'ok' as StateType,
+      get temperature(){ return this.data.temperature.state },
+      get vibration(){ return getVibraition(this) },
       data: {
         temperature: {
           id: 'temperature',
@@ -305,8 +315,8 @@ export namespace MockApi {
       type: 'bearer',
       name: '№ 2 п-к',
       location: 'bearer-2',
-      temperature: 'ok' as StateType,
-      vibration: 'ok' as StateType,
+      get temperature(){ return this.data.temperature.state },
+      get vibration(){ return getVibraition(this) },
       data: {
         temperature: {
           id: 'temperature',
@@ -334,8 +344,8 @@ export namespace MockApi {
       type: 'bearer',
       name: '№ 3 п-к',
       location: 'bearer-3',
-      temperature: 'ok' as StateType,
-      vibration: 'ok' as StateType,
+      get temperature(){ return this.data.temperature.state },
+      get vibration(){ return getVibraition(this) },
       data: {
         temperature: {
           id: 'temperature',
@@ -348,37 +358,22 @@ export namespace MockApi {
       type: 'bearer',
       name: '№ 4 п-к',
       location: 'bearer-4',
-      temperature: 'ok' as StateType,
-      vibration: 'danger' as StateType,
+      get temperature(){ return this.data.temperature.state },
+      get vibration(){ return getVibraition(this) },
       data: {
         temperature: {
           id: 'temperature',
           value: 300,
           state: 'caution',
         },
-        verticalVibration: {
-          id: 'vertical-vibration',
-          value: 22,
-          state: 'danger',
-        },
-        horizontalVibration: {
-          id: 'horizontal-vibration',
-          value: 10,
-          state: 'caution',
-        },
-        axialVibration: {
-          id: 'axial-vibration',
-          value: 0,
-          state: 'ok',
-        },
       }
     },{
       id: nextId(),
       type: 'bearer',
       name: '№ 5 п-к',
       location: 'bearer-5',
-      temperature: 'ok' as StateType,
-      vibration: 'caution' as StateType,
+      get temperature(){ return this.data.temperature.state },
+      get vibration(){ return getVibraition(this) },
       data: {
         temperature: {
           id: 'temperature',
@@ -406,8 +401,8 @@ export namespace MockApi {
       type: 'bearer',
       name: '№ 6 п-к',
       location: 'bearer-6',
-      temperature: 'ok' as StateType,
-      vibration: 'danger' as StateType,
+      get temperature(){ return this.data.temperature.state },
+      get vibration(){ return getVibraition(this) },
       data: {
         temperature: {
           id: 'temperature',
@@ -435,8 +430,8 @@ export namespace MockApi {
       type: 'bearer',
       name: '№ 7 п-к',
       location: 'bearer-7',
-      temperature: 'caution' as StateType,
-      vibration: 'ok' as StateType,
+      get temperature(){ return this.data.temperature.state },
+      get vibration(){ return getVibraition(this) },
       data: {
         temperature: {
           id: 'temperature',
@@ -464,8 +459,8 @@ export namespace MockApi {
       type: 'bearer',
       name: '№ 8 п-к',
       location: 'bearer-8',
-      temperature: 'danger' as StateType,
-      vibration: 'ok' as StateType,
+      get temperature(){ return this.data.temperature.state },
+      get vibration(){ return getVibraition(this) },
       data: {
         temperature: {
           id: 'temperature',
@@ -493,8 +488,8 @@ export namespace MockApi {
       type: 'bearer',
       name: '№ 9 п-к',
       location: 'bearer-9',
-      temperature: 'caution' as StateType,
-      vibration: 'danger' as StateType,
+      get temperature(){ return this.data.temperature.state },
+      get vibration(){ return getVibraition(this) },
       data: {
         temperature: {
           id: 'temperature',
@@ -507,8 +502,8 @@ export namespace MockApi {
       type: 'bearer',
       name: '№ 1 п-к',
       location: 'bearer-1',
-      temperature: 'ok' as StateType,
-      vibration: 'caution' as StateType,
+      get temperature(){ return this.data.temperature.state },
+      get vibration(){ return getVibraition(this) },
       data: {
         temperature: {
           id: 'temperature',
@@ -536,8 +531,8 @@ export namespace MockApi {
       type: 'bearer',
       name: '№ 2 п-к',
       location: 'bearer-2',
-      temperature: 'caution' as StateType,
-      vibration: 'caution' as StateType,
+      get temperature(){ return this.data.temperature.state },
+      get vibration(){ return getVibraition(this) },
       data: {
         temperature: {
           id: 'temperature',
@@ -565,8 +560,8 @@ export namespace MockApi {
       type: 'bearer',
       name: '№ 3 п-к',
       location: 'bearer-3',
-      temperature: 'caution' as StateType,
-      vibration: 'ok' as StateType,
+      get temperature(){ return this.data.temperature.state },
+      get vibration(){ return getVibraition(this) },
       data: {
         temperature: {
           id: 'temperature',
@@ -579,27 +574,12 @@ export namespace MockApi {
       type: 'bearer',
       name: '№ 4 п-к',
       location: 'bearer-4',
-      temperature: 'ok' as StateType,
-      vibration: 'caution' as StateType,
+      get temperature(){ return this.data.temperature.state },
+      get vibration(){ return getVibraition(this) },
       data: {
         temperature: {
           id: 'temperature',
           value: 220,
-          state: 'ok',
-        },
-        verticalVibration: {
-          id: 'vertical-vibration',
-          value: 22,
-          state: 'danger',
-        },
-        horizontalVibration: {
-          id: 'horizontal-vibration',
-          value: 10,
-          state: 'caution',
-        },
-        axialVibration: {
-          id: 'axial-vibration',
-          value: 0,
           state: 'ok',
         },
       }
@@ -608,8 +588,8 @@ export namespace MockApi {
       type: 'bearer',
       name: '№ 5 п-к',
       location: 'bearer-5',
-      temperature: 'caution' as StateType,
-      vibration: 'ok' as StateType,
+      get temperature(){ return this.data.temperature.state },
+      get vibration(){ return getVibraition(this) },
       data: {
         temperature: {
           id: 'temperature',
@@ -637,8 +617,8 @@ export namespace MockApi {
       type: 'bearer',
       name: '№ 6 п-к',
       location: 'bearer-6',
-      temperature: 'ok' as StateType,
-      vibration: 'caution' as StateType,
+      get temperature(){ return this.data.temperature.state },
+      get vibration(){ return getVibraition(this) },
       data: {
         temperature: {
           id: 'temperature',
@@ -666,8 +646,8 @@ export namespace MockApi {
       type: 'bearer',
       name: '№ 7 п-к',
       location: 'bearer-7',
-      temperature: 'ok' as StateType,
-      vibration: 'ok' as StateType,
+      get temperature(){ return this.data.temperature.state },
+      get vibration(){ return getVibraition(this) },
       data: {
         temperature: {
           id: 'temperature',
@@ -695,8 +675,8 @@ export namespace MockApi {
       type: 'bearer',
       name: '№ 8 п-к',
       location: 'bearer-8',
-      temperature: 'ok' as StateType,
-      vibration: 'caution' as StateType,
+      get temperature(){ return this.data.temperature.state },
+      get vibration(){ return getVibraition(this) },
       data: {
         temperature: {
           id: 'temperature',
@@ -724,8 +704,8 @@ export namespace MockApi {
       type: 'bearer',
       name: '№ 9 п-к',
       location: 'bearer-9',
-      temperature: 'ok' as StateType,
-      vibration: 'ok' as StateType,
+      get temperature(){ return this.data.temperature.state },
+      get vibration(){ return getVibraition(this) },
       data: {
         temperature: {
           id: 'temperature',
@@ -738,8 +718,8 @@ export namespace MockApi {
       type: 'bearer',
       name: '№ 1 п-к',
       location: 'bearer-1',
-      temperature: 'ok' as StateType,
-      vibration: 'ok' as StateType,
+      get temperature(){ return this.data.temperature.state },
+      get vibration(){ return getVibraition(this) },
       data: {
         temperature: {
           id: 'temperature',
@@ -767,8 +747,8 @@ export namespace MockApi {
       type: 'bearer',
       name: '№ 2 п-к',
       location: 'bearer-2',
-      temperature: 'danger' as StateType,
-      vibration: 'caution' as StateType,
+      get temperature(){ return this.data.temperature.state },
+      get vibration(){ return getVibraition(this) },
       data: {
         temperature: {
           id: 'temperature',
@@ -796,8 +776,8 @@ export namespace MockApi {
       type: 'bearer',
       name: '№ 3 п-к',
       location: 'bearer-3',
-      temperature: 'ok' as StateType,
-      vibration: 'ok' as StateType,
+      get temperature(){ return this.data.temperature.state },
+      get vibration(){ return getVibraition(this) },
       data: {
         temperature: {
           id: 'temperature',
@@ -810,27 +790,12 @@ export namespace MockApi {
       type: 'bearer',
       name: '№ 4 п-к',
       location: 'bearer-4',
-      temperature: 'ok' as StateType,
-      vibration: 'ok' as StateType,
+      get temperature(){ return this.data.temperature.state },
+      get vibration(){ return getVibraition(this) },
       data: {
         temperature: {
           id: 'temperature',
           value: 220,
-          state: 'ok',
-        },
-        verticalVibration: {
-          id: 'vertical-vibration',
-          value: 22,
-          state: 'danger',
-        },
-        horizontalVibration: {
-          id: 'horizontal-vibration',
-          value: 10,
-          state: 'caution',
-        },
-        axialVibration: {
-          id: 'axial-vibration',
-          value: 0,
           state: 'ok',
         },
       }
@@ -839,8 +804,8 @@ export namespace MockApi {
       type: 'bearer',
       name: '№ 5 п-к',
       location: 'bearer-5',
-      temperature: 'caution' as StateType,
-      vibration: 'caution' as StateType,
+      get temperature(){ return this.data.temperature.state },
+      get vibration(){ return getVibraition(this) },
       data: {
         temperature: {
           id: 'temperature',
@@ -868,8 +833,8 @@ export namespace MockApi {
       type: 'bearer',
       name: '№ 6 п-к',
       location: 'bearer-6',
-      temperature: 'caution' as StateType,
-      vibration: 'caution' as StateType,
+      get temperature(){ return this.data.temperature.state },
+      get vibration(){ return getVibraition(this) },
       data: {
         temperature: {
           id: 'temperature',
@@ -897,8 +862,8 @@ export namespace MockApi {
       type: 'bearer',
       name: '№ 7 п-к',
       location: 'bearer-7',
-      temperature: 'ok' as StateType,
-      vibration: 'ok' as StateType,
+      get temperature(){ return this.data.temperature.state },
+      get vibration(){ return getVibraition(this) },
       data: {
         temperature: {
           id: 'temperature',
@@ -926,8 +891,8 @@ export namespace MockApi {
       type: 'bearer',
       name: '№ 8 п-к',
       location: 'bearer-8',
-      temperature: 'danger' as StateType,
-      vibration: 'danger' as StateType,
+      get temperature(){ return this.data.temperature.state },
+      get vibration(){ return getVibraition(this) },
       data: {
         temperature: {
           id: 'temperature',
@@ -955,8 +920,8 @@ export namespace MockApi {
       type: 'bearer',
       name: '№ 9 п-к',
       location: 'bearer-9',
-      temperature: 'caution' as StateType,
-      vibration: 'danger' as StateType,
+      get temperature(){ return this.data.temperature.state },
+      get vibration(){ return getVibraition(this) },
       data: {
         temperature: {
           id: 'temperature',

@@ -1,5 +1,5 @@
-import WaterDropIc from "../../../../components/icons/WaterDropIc";
-import BearerIc from "../../../../components/icons/BearerIc";
+import WaterDropIc from "src/components/icons/WaterDropIc";
+import BearerIc from "src/components/icons/BearerIc";
 import styled from "styled-components";
 import {StyledCommon} from "src/style/styled-common";
 import {Utils} from "src/utils/utils";
@@ -13,20 +13,21 @@ export namespace Item {
   
   import BearerDataType = ExausterDetailedDataTypes.BearerDataType;
   import LocationType = ExausterDetailedDataTypes.LocationType;
+  import StateType = MarkView.StateType;
   
   export interface OilType {
     id: string
     type: 'oil'
     title: string
-    oil?: empty|'ok'|'caution'|'danger'
+    oil?: empty|StateType
   }
   export interface BearerType {
     id: string
     type: 'bearer'
     name: string
     location: LocationType
-    temperature?: empty|'ok'|'caution'|'danger'
-    vibration?: empty|'ok'|'caution'|'danger'
+    temperature?: empty|StateType
+    vibration?: empty|StateType
     data: BearerDataType
   }
   export type ItemType = OilType|BearerType
