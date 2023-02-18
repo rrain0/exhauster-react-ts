@@ -75,17 +75,19 @@ export namespace StyledCommon {
   
   export const page = css`
     width: 100%;
-    background: #F8F8F8;
+    min-height: 100vh;
+    background: #F0F0F0;
     ${col};
     align-items: center;
   `
   
   export const pageElement = css`
     width: clamp(200px, 100%, 1920px);
-    padding: 0 64px 0 64px;
-    @media (max-width: 900px) {
-      padding: 0 16px 0 16px;
-    }
+    padding: 0 16px 0 16px;
+    //padding: 0 64px 0 64px;
+    //@media (max-width: 900px) {
+    //  padding: 0 16px 0 16px;
+    //}
   `
   
   
@@ -102,8 +104,12 @@ export namespace StyledCommon {
     }
   `
   export const resetButton = css`
-    ${reset}
-    &, &:hover, &:active, &:focus-visible, &:focus {
+    ${reset};
+    outline: none;
+    box-shadow: none;
+    border: none;
+    -webkit-tap-highlight-color: transparent;
+    &:hover, &:active, &:focus-visible, &:focus {
       outline: none;
       box-shadow: none;
       border: none;
