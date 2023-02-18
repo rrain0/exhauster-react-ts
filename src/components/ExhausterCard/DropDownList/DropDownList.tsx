@@ -1,12 +1,7 @@
-import {useState} from "react";
+import {useEffect, useState} from "react";
 import Arrow1Right from "../../icons/Arrow1Right";
-import WaterDropIc from "../../icons/WaterDropIc";
-import BearerIc from "../../icons/BearerIc";
-import ThermometerIc from "../../icons/ThermometerIc";
-import RadioIc from "../../icons/RadioIc";
 import styled from "styled-components";
-import {StyledCommon} from "../../../style/styled-common";
-import {Utils} from "../../../utils/utils";
+import {StyledCommon} from "src/style/styled-common";
 import { Item } from "./Item";
 
 
@@ -16,13 +11,34 @@ export namespace DropDownList {
   import row = StyledCommon.row;
   import resetButton = StyledCommon.resetButton;
   import center = StyledCommon.center;
+  import ItemType = Item.ItemType;
   export type DropDownListProps = {
     title: string
     items: Item.ItemType[]
+    setSelectedBearers: (selectedBearers: ItemType[])=>void
   }
   export function DropDownList(props: DropDownListProps){
     
     const [isOpened, setIsOpened] = useState(false)
+    
+    //useEffect(()=>{ isOpened && setTimeout(()=>setIsOpened(false),3000) },[isOpened])
+    
+    const [hoveredItem, setHoveredItem] = useState(undefined as undefined|ItemType)
+    useEffect(()=>{
+      if (hoveredItem) setHoveredItem(props.items.find(it=>
+        it.type===hoveredItem.type && it.id===hoveredItem.id
+      ))
+    },[props.items])
+    useEffect(()=>{
+      if (hoveredItem) props.setSelectedBearers([hoveredItem])
+      else props.setSelectedBearers([])
+    },[hoveredItem])
+    
+    const setHovered = (item: ItemType, isHovered: boolean, ...message: string[])=>{
+      //console.log('setHovered', item, isHovered, message[0])
+      if (isHovered) setHoveredItem(item)
+      else setHoveredItem(undefined)
+    }
     
     return <View>
       
@@ -32,7 +48,7 @@ export namespace DropDownList {
       </TitleFrame>
       
       { isOpened && <ItemList>
-        { props.items.map(it=><Item.Item key={it.id} item={it}/>) }
+        { props.items.map(it=><Item.Item key={it.id} item={it} setHovered={setHovered} />) }
       </ItemList> }
     
     </View>

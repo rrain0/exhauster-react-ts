@@ -8,6 +8,10 @@ import { Header } from "./Header";
 import { RotorTitle } from "./RotorTitle";
 import { RotorReplacement } from "./RotorReplacement";
 import { DropDownList } from "./DropDownList/DropDownList";
+import {ExhausterScheme} from "./ExhausterScheme";
+import {useState} from "react";
+import {Item} from "./DropDownList/Item";
+import ItemType = Item.ItemType;
 
 
 
@@ -17,6 +21,8 @@ export type ExhausterCardProps = {
   exhauster: ExhausterType
 }
 function ExhausterCard(props: ExhausterCardProps){
+  
+  const [selectedBearers, setSelectedBearers] = useState<ItemType[]>([])
   
   return <Exhauster>
     <Header.Header name={props.exhauster.name} isWorking={props.exhauster.isWorking}/>
@@ -36,6 +42,10 @@ function ExhausterCard(props: ExhausterCardProps){
       />
       <Space h={15}/>
       
+      <ExhausterScheme.ExhausterScheme bearers={selectedBearers}/>
+      
+      <Space h={15}/>
+      
       <DropDownList.DropDownList
         title='Предупреждения'
         items={[...props.exhauster.bearers, props.exhauster.oil].filter(it=>
@@ -43,13 +53,21 @@ function ExhausterCard(props: ExhausterCardProps){
           ['caution','danger'].includes(it['temperature']) ||
           ['caution','danger'].includes(it['vibration'])
         )}
+        setSelectedBearers={setSelectedBearers}
       />
       
       <Space h={10}/>
       
       <DropDownList.DropDownList
-        title='Все'
-        items={[...props.exhauster.bearers, props.exhauster.oil]}
+        title='Исправные элементы'
+        items={[...props.exhauster.bearers, props.exhauster.oil].filter(it=>
+          !(
+            ['caution','danger'].includes(it['oil']) ||
+            ['caution','danger'].includes(it['temperature']) ||
+            ['caution','danger'].includes(it['vibration'])
+          )
+        )}
+        setSelectedBearers={setSelectedBearers}
       />
       
       <Space h={15}/>

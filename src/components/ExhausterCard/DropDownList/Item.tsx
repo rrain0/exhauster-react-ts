@@ -1,8 +1,8 @@
 import WaterDropIc from "../../icons/WaterDropIc";
 import BearerIc from "../../icons/BearerIc";
 import styled from "styled-components";
-import {StyledCommon} from "../../../style/styled-common";
-import {Utils} from "../../../utils/utils";
+import {StyledCommon} from "src/style/styled-common";
+import {Utils} from "src/utils/utils";
 import empty = Utils.empty;
 import row = StyledCommon.row;
 import { MarkView } from "./MarkView";
@@ -27,21 +27,27 @@ export namespace Item {
   export type ItemType = OilType|BearerType
   export interface ItemProps {
     item: ItemType
+    setHovered: (item: ItemType, isHovered: boolean, ...message: string[])=>void
   }
   export function Item(props: ItemProps){
-    const i = props.item
+    const it = props.item
     
-    return <Item_>
-      { i.type==='oil' && <>
+    return <Item_
+      //onMouseOver={()=>props.setHovered(it,true, 'over')}
+      onMouseEnter={()=>props.setHovered(it,true, 'enter')}
+      //onMouseOut={()=>props.setHovered(it,false, 'out')}
+      onMouseLeave={()=>props.setHovered(it,false, 'leave')}
+    >
+      { it.type==='oil' && <>
           <Oil/>
-          <WrapFlex1><ItemTitle>{i.title}</ItemTitle></WrapFlex1>
-        { i.oil && <MarkView.MarkView mark={{ type: 'oil', state: i.oil }} /> }
+          <WrapFlex1><ItemTitle>{it.title}</ItemTitle></WrapFlex1>
+        { it.oil && <MarkView.MarkView mark={{ type: 'oil', state: it.oil }} /> }
       </> }
-      { i.type==='bearer' && <>
+      { it.type==='bearer' && <>
           <Bearer/>
-          <WrapFlex1><ItemTitle>{i.title}</ItemTitle></WrapFlex1>
-        { i.temperature && <MarkView.MarkView mark={{ type: 'temperature', state: i.temperature }} /> }
-        { i.vibration && <MarkView.MarkView mark={{ type: 'vibration', state: i.vibration }} /> }
+          <WrapFlex1><ItemTitle>{it.title}</ItemTitle></WrapFlex1>
+        { it.temperature && <MarkView.MarkView mark={{ type: 'temperature', state: it.temperature }} /> }
+        { it.vibration && <MarkView.MarkView mark={{ type: 'vibration', state: it.vibration }} /> }
       </> }
     </Item_>
   }
