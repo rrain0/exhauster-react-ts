@@ -40,7 +40,10 @@ export namespace DropDownList {
       else setHoveredItem(undefined)
     }
     
-    return <View>
+    return <View
+      // костыль, которого всё равно мало
+      onMouseLeave={()=>setHoveredItem(undefined)}
+    >
       
       <TitleFrame onClick={()=>setIsOpened(!isOpened)}>
         <TitleButton>{ isOpened ? <ArrowOpened/> : <ArrowClosed/> }</TitleButton>
