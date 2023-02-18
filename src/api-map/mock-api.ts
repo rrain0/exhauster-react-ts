@@ -2,10 +2,7 @@ import {Utils} from "src/utils/utils";
 import nextId = Utils.nextId;
 import {DateTime} from "src/utils/DateTime";
 import {Item} from "../components/ExhausterCard/DropDownList/Item";
-import {
-  MarkView
-} from "../components/ExhausterCard/DropDownList/MarkView";
-
+import { MarkView } from "../components/ExhausterCard/DropDownList/MarkView";
 import OilType = Item.OilType;
 import StateType = MarkView.StateType;
 import BearerType = Item.BearerType;
