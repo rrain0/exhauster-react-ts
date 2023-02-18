@@ -18,7 +18,12 @@ function ExhausterCard(){
       <RotorTitle.Row />
       <Space h={15}/>
       <Line/>
-      Эксгаустер
+      <Space h={15}/>
+      <RotorReplacement.Card />
+      <Space h={15}/>
+      
+      
+      <Space h={15}/>
     </MainContentFrame>
   </Exhauster>
 }
@@ -164,17 +169,26 @@ namespace RotorReplacement {
   export function Card(){
     return <Card_>
     <Row><Title>Последняя замена ротора</Title></Row>
-    <Row><TimePassed>6 сут</TimePassed></Row>
+    <Row>
+      <TimePassed>6 сут</TimePassed>
+      <Forecast>
+        <ForecastTitle>Прогноз</ForecastTitle>
+        <ForecastTime>12 сут</ForecastTime>
+      </Forecast>
+    </Row>
     </Card_>
   }
   const Card_ = styled.div`
     background: #FAFAFA;
     border-radius: 4px;
     padding: 5px 20px;
-    ${col}
+    ${col};
+    gap: 7px;
   `
   const Row = styled.div`
     ${row};
+    gap: 15px;
+    align-items: center;
   `
   const Title = styled.h5`
     font: 500 13px/129% Roboto;
@@ -190,6 +204,15 @@ namespace RotorReplacement {
     color: black;
   `
   const Forecast = styled.div`
-  
+    ${col};
+    gap: 1px;
+  `
+  const ForecastTitle = styled.div`
+    font: 400 13px/129% Roboto;
+    color: #6E6E6D;
+  `
+  const ForecastTime = styled.div`
+    font: 500 16px/129% Roboto;
+    color: #565655;
   `
 }
