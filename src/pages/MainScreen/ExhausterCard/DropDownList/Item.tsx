@@ -3,7 +3,6 @@ import BearerIc from "src/components/icons/BearerIc";
 import styled from "styled-components";
 import {StyledCommon} from "src/style/styled-common";
 import {Utils} from "src/utils/utils";
-import empty = Utils.empty;
 import row = StyledCommon.row;
 import { MarkView } from "./MarkView";
 import {ExausterDetailedDataTypes} from "../../../ExhausterDetailedScreen/ExausterDetailedDataTypes";
@@ -11,28 +10,11 @@ import {ExausterDetailedDataTypes} from "../../../ExhausterDetailedScreen/Exaust
 
 export namespace Item {
   
-  import BearerDataType = ExausterDetailedDataTypes.BearerDataType;
-  import LocationType = ExausterDetailedDataTypes.LocationType;
-  import StateType = MarkView.StateType;
+  import BearerElementType = ExausterDetailedDataTypes.BearerElementType;
+  import OilElementType = ExausterDetailedDataTypes.OilElementType;
   
-  export interface OilType {
-    id: string
-    type: 'oil'
-    name: string
-    state: StateType
-    oil: StateType
-  }
-  export interface BearerType {
-    id: string
-    type: 'bearer'
-    name: string
-    location: LocationType
-    temperature?: empty|StateType
-    vibration?: empty|StateType
-    state: StateType
-    data: BearerDataType
-  }
-  export type ItemType = OilType|BearerType
+  
+  export type ItemType = OilElementType|BearerElementType
   export interface ItemProps {
     item: ItemType
     setHovered: (item: ItemType, isHovered: boolean, ...message: string[])=>void

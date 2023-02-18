@@ -7,15 +7,17 @@ import center = StyledCommon.center;
 import styled from "styled-components";
 
 import row = StyledCommon.row;
+import {ExausterDetailedDataTypes} from "../../../ExhausterDetailedScreen/ExausterDetailedDataTypes";
+import StateType = ExausterDetailedDataTypes.StateType;
 
 
 export namespace MarkView {
   
-  export type StateType = 'ok'|'caution'|'danger'
-  export type MarkType = 'temperature'|'vibration'|'oil'
+  
+  export type MarkViewType = 'temperature'|'vibration'|'oil'
   export type MarkViewProps = {
     mark: {
-      type: MarkType
+      type: MarkViewType
       state: StateType
     }
   }
@@ -38,20 +40,20 @@ export namespace MarkView {
   
   // показатель
   const MarkBox = styled.div<{ state: 'ok'|'caution'|'danger' }>`
-        ${row};
-        align-items: center;
-        padding: 0 5px;
-        gap: 3px;
-        min-width: 37px;
-        height: 20px;
-        background: ${p=>stateToBgcColor(p.state)};
-        border: 1px solid ${p=>stateToColor(p.state)};
-        border-radius: 2px;
-      `
+    ${row};
+    align-items: center;
+    padding: 0 5px;
+    gap: 3px;
+    min-width: 37px;
+    height: 20px;
+    background: ${p=>stateToBgcColor(p.state)};
+    border: 1px solid ${p=>stateToColor(p.state)};
+    border-radius: 2px;
+  `
   const IconBox = styled.div`
-        flex: 1;
-        ${center}
-      `
+    flex: 1;
+    ${center}
+  `
   function stateToColor(state: StateType){
     switch (state){
       case 'ok': return '#CCCCCC'

@@ -1,16 +1,16 @@
 import { StyledCommon } from "src/style/styled-common";
 import center = StyledCommon.center;
 import styled from "styled-components";
-import {MarkView} from "../MainScreen/ExhausterCard/DropDownList/MarkView";
+import {ExausterDetailedDataTypes} from "./ExausterDetailedDataTypes";
 
 
 
 export namespace BearerIndicator {
   
-  import StateType = MarkView.StateType;
   
   
   
+  import StateType = ExausterDetailedDataTypes.StateType;
   export type BearerIndicatorProps = {
     number: string|number
     state: StateType

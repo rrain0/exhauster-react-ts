@@ -14,22 +14,22 @@ import {TileSelect} from "src/components/TileSelect";
 import {ExausterDetailedDataTypes} from "./ExausterDetailedDataTypes";
 import row = StyledCommon.row;
 import TileId = TileSelect.TileId;
-import BearerElementType = ExausterDetailedDataTypes.BearerElementType;
+import ElementType = ExausterDetailedDataTypes.ElementType;
 
 
 
 export namespace ExhausterDetailedScreen {
   
   
-  import ElementsType = ExausterDetailedDataTypes.ElementsType;
-  import ElementType = ExausterDetailedDataTypes.ElementType;
+  
   const tiles = [
     { id: 'scheme', title: 'Мнемосхема' },
     { id: 'chart', title: 'График' },
   ]
   
   export function ExhausterDetailedScreen(){
-    
+  
+    const [updateTime, setUpdateTime] = useState(MockApi.updateTime)
     
     const exhausterId = useParams().id
     
@@ -40,10 +40,12 @@ export namespace ExhausterDetailedScreen {
     const navigate = useNavigate()
     
     const screen = useMatch('exhauster-detailed/:id/:screen')?.params.screen
-    const onScreenSelect = (screen: TileId) => navigate(`/exhauster-detailed/${exhausterId}/${screen}`)
+    const onScreenSelect = (screen: TileId) =>
+      navigate(`/exhauster-detailed/${exhausterId}/${screen}`, { replace: true })
     
-    if (!exhauster) return <Navigate to='/main-screen' />
-    if (!['scheme','chart'].includes(screen as any)) return <Navigate to={`/exhauster-detailed/${exhausterId}/scheme`} />
+    if (!exhauster) return <Navigate to='/main-screen' replace={true} />
+    if (!['scheme','chart'].includes(screen as any))
+      return <Navigate to={`/exhauster-detailed/${exhausterId}/scheme`} replace={true} />
     
     return <Page>
       <Space h={16}/>
@@ -57,9 +59,14 @@ export namespace ExhausterDetailedScreen {
           <CardHeader title={exhauster.name} />
   
           <Routes>
-            <Route path={'scheme'} element={<ExhausterDetailedViewFrame elements={exhauster.bearers}/>}/>
+            <Route path={'scheme'} element={
+              <ExhausterDetailedViewFrame
+                elements={[...exhauster.bearers, exhauster.oil]}
+                updateTime={updateTime}
+              />
+            }/>
             <Route path={'chart'} element={<div>здесь должны быть графики...</div>}/>
-            <Route path='*' element={<Navigate to={'scheme'} />} />
+            <Route path='*' element={<Navigate to={'scheme'} replace={true} />} />
           </Routes>
           
         </Card>
@@ -84,11 +91,12 @@ export namespace ExhausterDetailedScreen {
   
   type ExhausterDetailedViewFrameProps = {
     elements: ElementType[]
+    updateTime: number
   }
-  function ExhausterDetailedViewFrame({ elements }: ExhausterDetailedViewFrameProps){
+  function ExhausterDetailedViewFrame({ elements, updateTime }: ExhausterDetailedViewFrameProps){
     return <Frame>
       <ItemFrame>
-        <Legend mode={['dangers']}/>
+        <Legend mode={['dangers']} updateTime={updateTime}/>
       </ItemFrame>
       <ItemFrame>
         <ExhausterDetailedView.ExhausterDetailedView elements={elements}/>

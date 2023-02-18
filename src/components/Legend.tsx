@@ -5,14 +5,33 @@ import styled from "styled-components";
 import {StyledCommon} from "src/style/styled-common";
 import rowWrap = StyledCommon.rowWrap;
 import row = StyledCommon.row;
+import {useEffect, useState} from "react";
+import {MockApi} from "../api-map/mock-api";
+import updateTime = MockApi.updateTime;
 
 
 type LegendProps = {
+  updateTime: number
   mode?: ('marks'|'dangers')[]
 }
 const Legend = ({ mode = ['marks','dangers'] }: LegendProps)=>{
   
+  const getSecondsPassed = () => {
+    return Math.round((+new Date() - updateTime)/1000)
+  }
+  const [secondsPassed, setSecondsPassed] = useState(()=>getSecondsPassed())
+  useEffect(()=>{
+    const id = setInterval(()=>setSecondsPassed(getSecondsPassed()),1000)
+    return ()=>clearInterval(id)
+  },[updateTime])
+  
+  
   return <Row>
+    
+    <WrapFlex1>
+      <div>Время обновления данных: {secondsPassed} сек назад</div>
+    </WrapFlex1>
+    
     { mode.includes('marks') && <>
       <Element>
           <LetterIcon>
@@ -64,6 +83,12 @@ const Row = styled.section`
   align-content: center;
   justify-content: end;
 `
+const WrapFlex1 = styled.div`
+  flex: 1;
+  font: 400 13px/129% Roboto;
+  color: #2B2B2A;
+`
+
 const Element = styled.div`
   ${row};
   gap: 8px;

@@ -15,14 +15,17 @@ import Card from "src/components/Card";
 
 const MainScreen = ()=>{
   
+  const [updateTime, setUpdateTime] = useState(MockApi.updateTime)
+  
   const [machines, setMachines] = useState(sinteringMachines)
+  
   
   return <Page>
     <Space h={16}/>
     <PageElement>
       <Card>
         <CardHeader title='Главный экран'/>
-        <Legend/>
+        <Legend updateTime={updateTime} />
         <SinteringMachines.SinteringMachinesView machines={machines}/>
       </Card>
     </PageElement>

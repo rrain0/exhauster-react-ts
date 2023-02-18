@@ -9,8 +9,8 @@ function App() {
     <Route path='landing' element={<Landing />} />
     <Route path='main-screen' element={<MainScreen />} />
     <Route path='exhauster-detailed/:id/*' element={<ExhausterDetailedScreen.ExhausterDetailedScreen />}/>
-    <Route path='*' element={<Navigate to='landing' />} />
+    <Route path='*' element={<Navigate to='landing' replace={true} />} />
   </Routes>
 }
 
-export default App;
+export default App

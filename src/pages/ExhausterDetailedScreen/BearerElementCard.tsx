@@ -5,7 +5,6 @@ import center = StyledCommon.center;
 import row = StyledCommon.row;
 import {ExausterDetailedDataTypes} from "./ExausterDetailedDataTypes";
 import {CSSProperties} from "react";
-import {MarkView} from "../MainScreen/ExhausterCard/DropDownList/MarkView";
 
 
 
@@ -15,7 +14,7 @@ export namespace BearerElementCard {
   
   import BearerElementType = ExausterDetailedDataTypes.BearerElementType;
   import MarkType = ExausterDetailedDataTypes.MarkType;
-  import StateType = MarkView.StateType;
+  import StateType = ExausterDetailedDataTypes.StateType;
   export type BearerElementCardProps = {
     style?: CSSProperties|undefined
     bearer: BearerElementType
