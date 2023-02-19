@@ -17,6 +17,7 @@ export namespace MockApi {
   
   
   import GasCollectorElementType = ExausterDetailedDataTypes.GasCollectorElementType;
+  import ValveElementType = ExausterDetailedDataTypes.ValveElementType;
   
   function getDataMarkState(mark: MarkType){
     if (
@@ -30,6 +31,64 @@ export namespace MockApi {
     return 'ok'
   }
   
+  
+  
+  
+  const valves: ValveElementType[] = [
+    {
+      id: nextId(),
+      type: 'valve',
+      name: 'Клапан',
+      get isOpened(){ return this.data.position.value===100 },
+      get isClosed(){ return this.data.position.value===0 },
+      data: {
+        position: {
+          id: 'position',
+          value: 0,
+          get state(){ return getDataMarkState(this) },
+        },
+      }
+    },{
+      id: nextId(),
+      type: 'valve',
+      name: 'Клапан',
+      get isOpened(){ return this.data.position.value===100 },
+      get isClosed(){ return this.data.position.value===0 },
+      data: {
+        position: {
+          id: 'position',
+          value: 0,
+          get state(){ return getDataMarkState(this) },
+        },
+      }
+    },{
+      id: nextId(),
+      type: 'valve',
+      name: 'Клапан',
+      get isOpened(){ return this.data.position.value===100 },
+      get isClosed(){ return this.data.position.value===0 },
+      data: {
+        position: {
+          id: 'position',
+          value: 0,
+          get state(){ return getDataMarkState(this) },
+        },
+      }
+    },{
+      id: nextId(),
+      type: 'valve',
+      name: 'Клапан',
+      get isOpened(){ return Math.round(this.data.position.value)===100 },
+      get isClosed(){ return Math.round(this.data.position.value)===0 },
+      data: {
+        position: {
+          id: 'position',
+          value: 0,
+          get state(){ return getDataMarkState(this) },
+        },
+      }
+    },
+  ]
   
   
   

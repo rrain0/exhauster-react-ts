@@ -16,7 +16,7 @@ export namespace ExausterDetailedDataTypes {
       'level'|'pressure'|
       'oil-temperature-before'|'oil-temperature-after'|'water-temperature-before'|'water-temperature-after'|
       'rotor-current'|'rotor-voltage'|'stator-current'|'stator-voltage'|
-      'underpressure'|'dust-level'
+      'underpressure'|'dust-level'|'position'
     value: number
     state: StateType
     minCaution?: number|undefined
@@ -52,6 +52,9 @@ export namespace ExausterDetailedDataTypes {
     temperature: MarkType
     underpressure: MarkType
     dustLevel: MarkType
+  }
+  export type ValveDataType = {
+    position: MarkType // 0 - закрты, 100 - открыт
   }
   
   
@@ -100,9 +103,17 @@ export namespace ExausterDetailedDataTypes {
     name: string
     data: GasCollectorDataType
   }
+  export type ValveElementType = {
+    id: string
+    type: 'valve'
+    name: string
+    isOpened: boolean
+    isClosed: boolean
+    data: ValveDataType
+  }
   export type ElementType = BearerElementType|OilElementType|
     RotorElementType|CoolerElementType|MainEngineElementType|
-    GasCollectorElementType
+    GasCollectorElementType|ValveElementType
   export type ElementsType = {
     'bearer-1': BearerElementType
     'bearer-2': BearerElementType
@@ -116,6 +127,7 @@ export namespace ExausterDetailedDataTypes {
     'cooler': CoolerElementType
     'main-engine': MainEngineElementType
     'gas-collector': GasCollectorElementType
+    'valve': ValveElementType
   }
   
 }
