@@ -17,15 +17,7 @@ function Landing() {
         <ReactLogo />
         
         <LinkTo to='/main-screen'>
-          <div>1. Главный экран</div>
-        </LinkTo>
-        
-        <LinkTo to='/screen-2'>
-          <div>2. экран 2</div>
-        </LinkTo>
-        
-        <LinkTo to='/screen-3'>
-          <div>3. экран 3</div>
+          <div>Перейти на главный экран</div>
         </LinkTo>
         
       </ContentCol>

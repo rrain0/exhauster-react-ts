@@ -2,24 +2,22 @@ import {Utils} from "src/utils/utils";
 import nextId = Utils.nextId;
 import {DateTime} from "src/utils/DateTime";
 import {ExausterDetailedDataTypes} from "../pages/ExhausterDetailedScreen/ExausterDetailedDataTypes";
-
-
-
+import OilElementType = ExausterDetailedDataTypes.OilElementType;
+import BearerElementType = ExausterDetailedDataTypes.BearerElementType;
+import MarkType = ExausterDetailedDataTypes.MarkType;
+import StateType = ExausterDetailedDataTypes.StateType;
+import isPresent = Utils.isPresent;
+import CoolerElementType = ExausterDetailedDataTypes.CoolerElementType;
+import MainEngineElementType = ExausterDetailedDataTypes.MainEngineElementType;
+import ElementType = ExausterDetailedDataTypes.ElementType;
+import RotorElementType = ExausterDetailedDataTypes.RotorElementType;
 
 
 export namespace MockApi {
-
-
   
-  import OilElementType = ExausterDetailedDataTypes.OilElementType;
-  import BearerElementType = ExausterDetailedDataTypes.BearerElementType;
-  import MarkType = ExausterDetailedDataTypes.MarkType;
-  import StateType = ExausterDetailedDataTypes.StateType;
-  import isPresent = Utils.isPresent;
   
-  function getOilState(oil: OilElementType){
-    return oil.oil
-  }
+  import GasCollectorElementType = ExausterDetailedDataTypes.GasCollectorElementType;
+  
   function getDataMarkState(mark: MarkType){
     if (
       isPresent(mark.maxDanger) && mark.value>=mark.maxDanger ||
@@ -30,6 +28,326 @@ export namespace MockApi {
       isPresent(mark.minCaution) && mark.value<=mark.minCaution
     ) return 'caution'
     return 'ok'
+  }
+  
+  
+  
+  
+  
+  const gasCollectors: GasCollectorElementType[] = [
+    {
+      id: nextId(),
+      type: 'gas-collector',
+      name: 'Дымосос',
+      data: {
+        temperature: {
+          id: 'temperature',
+          value: 45,
+          get state(){ return getDataMarkState(this) },
+        },
+        underpressure: {
+          id: 'underpressure',
+          value: 74.3,
+          get state(){ return getDataMarkState(this) },
+        },
+        dustLevel: {
+          id: 'dust-level',
+          value: 15,
+          get state(){ return getDataMarkState(this) },
+        },
+      }
+    },{
+      id: nextId(),
+      type: 'gas-collector',
+      name: 'Дымосос',
+      data: {
+        temperature: {
+          id: 'temperature',
+          value: 100,
+          get state(){ return getDataMarkState(this) },
+        },
+        underpressure: {
+          id: 'underpressure',
+          value: 74.3,
+          get state(){ return getDataMarkState(this) },
+        },
+        dustLevel: {
+          id: 'dust-level',
+          value: 15,
+          get state(){ return getDataMarkState(this) },
+        },
+      }
+    },{
+      id: nextId(),
+      type: 'gas-collector',
+      name: 'Дымосос',
+      data: {
+        temperature: {
+          id: 'temperature',
+          value: 150,
+          get state(){ return getDataMarkState(this) },
+        },
+        underpressure: {
+          id: 'underpressure',
+          value: 74.3,
+          get state(){ return getDataMarkState(this) },
+        },
+        dustLevel: {
+          id: 'dust-level',
+          value: 15,
+          get state(){ return getDataMarkState(this) },
+        },
+      }
+    },{
+      id: nextId(),
+      type: 'gas-collector',
+      name: 'Дымосос',
+      data: {
+        temperature: {
+          id: 'temperature',
+          value: 180,
+          get state(){ return getDataMarkState(this) },
+        },
+        underpressure: {
+          id: 'underpressure',
+          value: 74.3,
+          get state(){ return getDataMarkState(this) },
+        },
+        dustLevel: {
+          id: 'dust-level',
+          value: 15,
+          get state(){ return getDataMarkState(this) },
+        },
+      }
+    },
+  ]
+  
+  
+  
+  
+  
+  const mainEngines: MainEngineElementType[] = [
+    {
+      id: nextId(),
+      type: 'main-engine',
+      name: 'Главный привод',
+      data: {
+        rotorCurrent: {
+          id: 'rotor-current',
+          value: 100,
+          get state(){ return getDataMarkState(this) },
+        },
+        rotorVoltage: {
+          id: 'rotor-voltage',
+          value: 100,
+          get state(){ return getDataMarkState(this) },
+        },
+        statorCurrent: {
+          id: 'stator-current',
+          value: 100,
+          get state(){ return getDataMarkState(this) },
+        },
+        statorVoltage: {
+          id: 'stator-voltage',
+          value: 100,
+          get state(){ return getDataMarkState(this) },
+        },
+      }
+    },{
+      id: nextId(),
+      type: 'main-engine',
+      name: 'Главный привод',
+      data: {
+        rotorCurrent: {
+          id: 'rotor-current',
+          value: 100,
+          get state(){ return getDataMarkState(this) },
+        },
+        rotorVoltage: {
+          id: 'rotor-voltage',
+          value: 100,
+          get state(){ return getDataMarkState(this) },
+        },
+        statorCurrent: {
+          id: 'stator-current',
+          value: 100,
+          get state(){ return getDataMarkState(this) },
+        },
+        statorVoltage: {
+          id: 'stator-voltage',
+          value: 100,
+          get state(){ return getDataMarkState(this) },
+        },
+      }
+    },{
+      id: nextId(),
+      type: 'main-engine',
+      name: 'Главный привод',
+      data: {
+        rotorCurrent: {
+          id: 'rotor-current',
+          value: 100,
+          get state(){ return getDataMarkState(this) },
+        },
+        rotorVoltage: {
+          id: 'rotor-voltage',
+          value: 100,
+          get state(){ return getDataMarkState(this) },
+        },
+        statorCurrent: {
+          id: 'stator-current',
+          value: 100,
+          get state(){ return getDataMarkState(this) },
+        },
+        statorVoltage: {
+          id: 'stator-voltage',
+          value: 100,
+          get state(){ return getDataMarkState(this) },
+        },
+      }
+    },{
+      id: nextId(),
+      type: 'main-engine',
+      name: 'Главный привод',
+      data: {
+        rotorCurrent: {
+          id: 'rotor-current',
+          value: 100,
+          get state(){ return getDataMarkState(this) },
+        },
+        rotorVoltage: {
+          id: 'rotor-voltage',
+          value: 100,
+          get state(){ return getDataMarkState(this) },
+        },
+        statorCurrent: {
+          id: 'stator-current',
+          value: 100,
+          get state(){ return getDataMarkState(this) },
+        },
+        statorVoltage: {
+          id: 'stator-voltage',
+          value: 100,
+          get state(){ return getDataMarkState(this) },
+        },
+      }
+    },
+  ]
+  
+  
+  
+  const coolers: CoolerElementType[] = [
+    {
+      id: nextId(),
+      type: 'cooler',
+      name: 'Охладитель',
+      data: {
+        oilTemperatureBefore: {
+          id: 'oil-temperature-before',
+          value: 88,
+          get state(){ return getDataMarkState(this) },
+        },
+        oilTemperatureAfter: {
+          id: 'oil-temperature-after',
+          value: 23,
+          get state(){ return getDataMarkState(this) },
+        },
+        waterTemperatureBefore: {
+          id: 'water-temperature-before',
+          value: 10,
+          get state(){ return getDataMarkState(this) },
+        },
+        waterTemperatureAfter: {
+          id: 'water-temperature-after',
+          value: 66,
+          get state(){ return getDataMarkState(this) },
+        },
+      }
+    },{
+      id: nextId(),
+      type: 'cooler',
+      name: 'Охладитель',
+      data: {
+        oilTemperatureBefore: {
+          id: 'oil-temperature-before',
+          value: 88,
+          get state(){ return getDataMarkState(this) },
+        },
+        oilTemperatureAfter: {
+          id: 'oil-temperature-after',
+          value: 23,
+          get state(){ return getDataMarkState(this) },
+        },
+        waterTemperatureBefore: {
+          id: 'water-temperature-before',
+          value: 10,
+          get state(){ return getDataMarkState(this) },
+        },
+        waterTemperatureAfter: {
+          id: 'water-temperature-after',
+          value: 66,
+          get state(){ return getDataMarkState(this) },
+        },
+      }
+    },{
+      id: nextId(),
+      type: 'cooler',
+      name: 'Охладитель',
+      data: {
+        oilTemperatureBefore: {
+          id: 'oil-temperature-before',
+          value: 88,
+          get state(){ return getDataMarkState(this) },
+        },
+        oilTemperatureAfter: {
+          id: 'oil-temperature-after',
+          value: 23,
+          get state(){ return getDataMarkState(this) },
+        },
+        waterTemperatureBefore: {
+          id: 'water-temperature-before',
+          value: 10,
+          get state(){ return getDataMarkState(this) },
+        },
+        waterTemperatureAfter: {
+          id: 'water-temperature-after',
+          value: 66,
+          get state(){ return getDataMarkState(this) },
+        },
+      }
+    },{
+      id: nextId(),
+      type: 'cooler',
+      name: 'Охладитель',
+      data: {
+        oilTemperatureBefore: {
+          id: 'oil-temperature-before',
+          value: 88,
+          get state(){ return getDataMarkState(this) },
+        },
+        oilTemperatureAfter: {
+          id: 'oil-temperature-after',
+          value: 23,
+          get state(){ return getDataMarkState(this) },
+        },
+        waterTemperatureBefore: {
+          id: 'water-temperature-before',
+          value: 10,
+          get state(){ return getDataMarkState(this) },
+        },
+        waterTemperatureAfter: {
+          id: 'water-temperature-after',
+          value: 66,
+          get state(){ return getDataMarkState(this) },
+        },
+      }
+    },
+  ]
+  
+  
+  
+  function getOilState(oil: OilElementType){
+    return oil.oil
   }
 // состояние масла эксгаустера
   const oils: OilElementType[] = [
@@ -1107,10 +1425,10 @@ export namespace MockApi {
   
   
   // роторы эксгаустеров
-  export type RotorType = typeof rotors[number]
-  const rotors = [
+  const rotors: RotorElementType[] = [
     {
       id: nextId(),
+      type: 'rotor',
       name: 'Ротор № 35к',
       // дата последней замены
       replacementDate: '12-02-2023',
@@ -1122,6 +1440,7 @@ export namespace MockApi {
       get replacementForecastState(){ return this.replacementForecast<=3 ? 'danger' : (this.replacementForecast<=10 ? 'caution' : 'ok') },
     },{
       id: nextId(),
+      type: 'rotor',
       name: 'Ротор № 47',
       replacementDate: '14-02-2023',
       get replacementWere(){ return DateTime.from_dd_MM_yyyy(this.replacementDate)!.getDays() },
@@ -1129,6 +1448,7 @@ export namespace MockApi {
       get replacementForecastState(){ return this.replacementForecast<=3 ? 'danger' : (this.replacementForecast<=10 ? 'caution' : 'ok') },
     },{
       id: nextId(),
+      type: 'rotor',
       name: 'Ротор № 37',
       replacementDate: '1-02-2023',
       get replacementWere(){ return DateTime.from_dd_MM_yyyy(this.replacementDate)!.getDays() },
@@ -1136,6 +1456,7 @@ export namespace MockApi {
       get replacementForecastState(){ return this.replacementForecast<=3 ? 'danger' : (this.replacementForecast<=10 ? 'caution' : 'ok') },
     },{
       id: nextId(),
+      type: 'rotor',
       name: 'Ротор № 32',
       replacementDate: '30-01-2023',
       get replacementWere(){ return DateTime.from_dd_MM_yyyy(this.replacementDate)!.getDays() },
@@ -1151,31 +1472,46 @@ export namespace MockApi {
       id: nextId(),
       name: 'Эксгаустер № 1 (У-171)',
       isWorking: true,
-      rotor: rotors[0],
-      // уровень масла
-      oil: oils[0],
       bearers: bearers.slice(0,9),
+      rotor: rotors[0],
+      oil: oils[0], // уровень и давление масла
+      cooler: coolers[0],
+      mainEngine: mainEngines[0],
+      gasCollector: gasCollectors[0],
+      get allElements(): ElementType[] { return [...this.bearers, this.oil, this.rotor, this.cooler, this.mainEngine, this.gasCollector] },
     },{
       id: nextId(),
       name: 'Эксгаустер № 2 (У-172)',
       isWorking: true,
+      bearers: bearers.slice(9,18),
       rotor: rotors[1],
       oil: oils[1],
-      bearers: bearers.slice(9,18),
+      cooler: coolers[1],
+      mainEngine: mainEngines[1],
+      gasCollector: gasCollectors[1],
+      get allElements(): ElementType[] { return [...this.bearers, this.oil, this.rotor, this.cooler, this.mainEngine, this.gasCollector] },
     },{
       id: nextId(),
       name: 'Эксгаустер № 3 (Ф-171)',
       isWorking: false,
+      bearers: bearers.slice(18,27),
       rotor: rotors[2],
       oil: oils[2],
-      bearers: bearers.slice(18,27),
+      cooler: coolers[2],
+      mainEngine: mainEngines[2],
+      gasCollector: gasCollectors[2],
+      get allElements(): ElementType[] { return [...this.bearers, this.oil, this.rotor, this.cooler, this.mainEngine, this.gasCollector] },
     },{
       id: nextId(),
       name: 'Эксгаустер № 4 (Ф-172)',
       isWorking: false,
+      bearers: bearers.slice(27,36),
       rotor: rotors[3],
       oil: oils[3],
-      bearers: bearers.slice(27,36),
+      cooler: coolers[3],
+      mainEngine: mainEngines[3],
+      gasCollector: gasCollectors[3],
+      get allElements(): ElementType[] { return [...this.bearers, this.oil, this.rotor, this.cooler, this.mainEngine, this.gasCollector] },
     },
   ]
   

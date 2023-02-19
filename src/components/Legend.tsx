@@ -8,6 +8,7 @@ import row = StyledCommon.row;
 import {useEffect, useState} from "react";
 import {MockApi} from "../api-map/mock-api";
 import updateTime = MockApi.updateTime;
+import {DateTime} from "../utils/DateTime";
 
 
 type LegendProps = {
@@ -16,20 +17,23 @@ type LegendProps = {
 }
 const Legend = ({ mode = ['marks','dangers'] }: LegendProps)=>{
   
-  const getSecondsPassed = () => {
-    return Math.round((+new Date() - updateTime)/1000)
+  const getMsPassed = () => {
+    return (+new Date() - updateTime)
   }
-  const [secondsPassed, setSecondsPassed] = useState(()=>getSecondsPassed())
+  const [msPasses, setMsPasses] = useState(()=>getMsPassed())
   useEffect(()=>{
-    const id = setInterval(()=>setSecondsPassed(getSecondsPassed()),1000)
+    const id = setInterval(()=>setMsPasses(getMsPassed()),1000)
     return ()=>clearInterval(id)
   },[updateTime])
   
+  const hours = Math.floor(msPasses/1000/60/60)
+  const minutes = Math.floor((msPasses - hours*1000*60*60)/1000/60)
+  const seconds = Math.floor((msPasses - hours*1000*60*60 - minutes*1000*60)/1000)
   
   return <Row>
     
     <WrapFlex1>
-      <div>Время обновления данных: {secondsPassed} сек назад</div>
+      <div>Данные обновлены {hours && `${hours} час `}{(hours||minutes) && `${minutes} мин `}{(hours||minutes||seconds) && `${seconds} сек `}назад</div>
     </WrapFlex1>
     
     { mode.includes('marks') && <>

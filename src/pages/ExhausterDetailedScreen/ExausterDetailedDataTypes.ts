@@ -1,6 +1,7 @@
 import {MarkView} from "../MainScreen/ExhausterCard/DropDownList/MarkView";
 import {Utils} from "src/utils/utils";
 import empty = Utils.empty;
+import {DateTime} from "../../utils/DateTime";
 
 
 export namespace ExausterDetailedDataTypes {
@@ -12,7 +13,10 @@ export namespace ExausterDetailedDataTypes {
     'bearer-9'
   export type MarkType = {
     id: 'temperature'|'vertical-vibration'|'horizontal-vibration'|'axial-vibration'|
-      'level'|'pressure'
+      'level'|'pressure'|
+      'oil-temperature-before'|'oil-temperature-after'|'water-temperature-before'|'water-temperature-after'|
+      'rotor-current'|'rotor-voltage'|'stator-current'|'stator-voltage'|
+      'underpressure'|'dust-level'
     value: number
     state: StateType
     minCaution?: number|undefined
@@ -20,16 +24,37 @@ export namespace ExausterDetailedDataTypes {
     minDanger?: number|undefined
     maxDanger?: number|undefined
   }
+  
+  
   export type BearerDataType = {
     temperature: MarkType
     verticalVibration?: MarkType|undefined
     horizontalVibration?: MarkType|undefined
     axialVibration?: MarkType|undefined
   }
+  export type CoolerDataType = {
+    oilTemperatureBefore: MarkType
+    oilTemperatureAfter: MarkType
+    waterTemperatureBefore: MarkType
+    waterTemperatureAfter: MarkType
+  }
+  export type MainEngineDataType = {
+    rotorCurrent: MarkType
+    rotorVoltage: MarkType
+    statorCurrent: MarkType
+    statorVoltage: MarkType
+  }
   export type OilDataType = {
     level: MarkType
     pressure: MarkType
   }
+  export type GasCollectorDataType = {
+    temperature: MarkType
+    underpressure: MarkType
+    dustLevel: MarkType
+  }
+  
+  
   export type BearerElementType = {
     id: string
     type: 'bearer'
@@ -48,9 +73,37 @@ export namespace ExausterDetailedDataTypes {
     oil: StateType
     data: OilDataType
   }
-  export type ElementType = BearerElementType|OilElementType
+  export type RotorElementType = {
+    id: string
+    type: 'rotor'
+    name: string
+    replacementDate: string // дата последней замены // '12-02-2023'
+    replacementWere: number // сколько дней прошло с момента последней замены
+    replacementForecast: number // через сколько дней заменить (прогноз замены)
+    replacementForecastState: StateType // текущее состояние ротора, зависит от прогноза замены
+  }
+  export type CoolerElementType = {
+    id: string
+    type: 'cooler'
+    name: string
+    data: CoolerDataType
+  }
+  export type MainEngineElementType = {
+    id: string
+    type: 'main-engine'
+    name: string
+    data: MainEngineDataType
+  }
+  export type GasCollectorElementType = {
+    id: string
+    type: 'gas-collector'
+    name: string
+    data: GasCollectorDataType
+  }
+  export type ElementType = BearerElementType|OilElementType|
+    RotorElementType|CoolerElementType|MainEngineElementType|
+    GasCollectorElementType
   export type ElementsType = {
-    'oil' : OilElementType
     'bearer-1': BearerElementType
     'bearer-2': BearerElementType
     'bearer-3': BearerElementType
@@ -59,6 +112,10 @@ export namespace ExausterDetailedDataTypes {
     'bearer-7': BearerElementType
     'bearer-8': BearerElementType
     'bearer-9': BearerElementType
+    'oil' : OilElementType
+    'cooler': CoolerElementType
+    'main-engine': MainEngineElementType
+    'gas-collector': GasCollectorElementType
   }
   
 }

@@ -61,7 +61,7 @@ export namespace ExhausterDetailedScreen {
           <Routes>
             <Route path={'scheme'} element={
               <ExhausterDetailedViewFrame
-                elements={[...exhauster.bearers, exhauster.oil]}
+                elements={exhauster.allElements}
                 updateTime={updateTime}
               />
             }/>
