@@ -44,7 +44,7 @@ export namespace MockApi {
       data: {
         position: {
           id: 'position',
-          value: 0,
+          value: 40,
           get state(){ return getDataMarkState(this) },
         },
       }
@@ -70,7 +70,7 @@ export namespace MockApi {
       data: {
         position: {
           id: 'position',
-          value: 0,
+          value: 99,
           get state(){ return getDataMarkState(this) },
         },
       }
@@ -83,7 +83,7 @@ export namespace MockApi {
       data: {
         position: {
           id: 'position',
-          value: 0,
+          value: 100,
           get state(){ return getDataMarkState(this) },
         },
       }
@@ -1537,7 +1537,8 @@ export namespace MockApi {
       cooler: coolers[0],
       mainEngine: mainEngines[0],
       gasCollector: gasCollectors[0],
-      get allElements(): ElementType[] { return [...this.bearers, this.oil, this.rotor, this.cooler, this.mainEngine, this.gasCollector] },
+      valve: valves[0],
+      get allElements(): ElementType[] { return [...this.bearers, this.oil, this.rotor, this.cooler, this.mainEngine, this.gasCollector, this.valve] },
     },{
       id: nextId(),
       name: 'Эксгаустер № 2 (У-172)',
@@ -1548,7 +1549,8 @@ export namespace MockApi {
       cooler: coolers[1],
       mainEngine: mainEngines[1],
       gasCollector: gasCollectors[1],
-      get allElements(): ElementType[] { return [...this.bearers, this.oil, this.rotor, this.cooler, this.mainEngine, this.gasCollector] },
+      valve: valves[1],
+      get allElements(): ElementType[] { return [...this.bearers, this.oil, this.rotor, this.cooler, this.mainEngine, this.gasCollector, this.valve] },
     },{
       id: nextId(),
       name: 'Эксгаустер № 3 (Ф-171)',
@@ -1559,7 +1561,8 @@ export namespace MockApi {
       cooler: coolers[2],
       mainEngine: mainEngines[2],
       gasCollector: gasCollectors[2],
-      get allElements(): ElementType[] { return [...this.bearers, this.oil, this.rotor, this.cooler, this.mainEngine, this.gasCollector] },
+      valve: valves[2],
+      get allElements(): ElementType[] { return [...this.bearers, this.oil, this.rotor, this.cooler, this.mainEngine, this.gasCollector, this.valve] },
     },{
       id: nextId(),
       name: 'Эксгаустер № 4 (Ф-172)',
@@ -1570,7 +1573,8 @@ export namespace MockApi {
       cooler: coolers[3],
       mainEngine: mainEngines[3],
       gasCollector: gasCollectors[3],
-      get allElements(): ElementType[] { return [...this.bearers, this.oil, this.rotor, this.cooler, this.mainEngine, this.gasCollector] },
+      valve: valves[3],
+      get allElements(): ElementType[] { return [...this.bearers, this.oil, this.rotor, this.cooler, this.mainEngine, this.gasCollector, this.valve] },
     },
   ]
   
